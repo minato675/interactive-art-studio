@@ -25,7 +25,7 @@
 | `shared-source-block-with-company-runtime-fixture` | 1 |
 
 선별한 원본 파일은 **412개**이며, 파일별 경로·원본 SHA256과 제외 사유는 [manifest](EXPORT_MANIFEST.json)에 있습니다.
-문서 작성 후 원본 파일의 바이트 일치, Python 구문과 JSON 형식, GitHub 비공개 설정·게시 파일을 검증합니다.
+문서 작성 후 원본 파일의 바이트 일치, Python 구문과 JSON 형식, GitHub에 게시한 파일과 공개 범위를 검증합니다.
 전체 서비스 실행·유료 API·실기·외부 배포를 이번 정리에서 새로 검증했다고 주장하지 않습니다.
 
 ## 회사 원본 제외
