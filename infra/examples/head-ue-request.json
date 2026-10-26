@@ -1,0 +1,12 @@
+{
+  "request_id": "replace-with-unique-head-ue-id",
+  "artwork_id": "artwork-A", "version": "v1", "catalog_version": "v1",
+  "prompt": "푸른 수중 배경과 그 배경에 어울리는 독립 객체 세 개를 제작합니다.",
+  "asset_count": 3, "profile": "production",
+  "spec": {
+    "template_family": "flow_family", "raw_prompt": "푸른 바다와 떠다니는 객체. 움직이면 입자를 밀어냅니다.",
+    "content": {"theme": "바다", "mood": "고요", "medium": "particle"},
+    "idle": {"motion": "ignore"},
+    "interactions": [{"input": "move", "reaction": "push", "reaction_mode": "while", "return": "fade"}]
+  }
+}

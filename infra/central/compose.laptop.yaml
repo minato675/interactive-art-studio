@@ -1,0 +1,26 @@
+# 노트북 중앙 전용. 기본·HTTPS 구성과 함께 사용한다.
+services:
+  central:
+    cpus: 2
+    mem_limit: 1g
+    pids_limit: 256
+  worker:
+    cpus: 2
+    mem_limit: 2g
+    pids_limit: 256
+  dispatcher:
+    cpus: 0.5
+    mem_limit: 256m
+    pids_limit: 128
+  postgres:
+    cpus: 2
+    mem_limit: 1g
+    pids_limit: 256
+  rabbitmq:
+    cpus: 1
+    mem_limit: 768m
+    pids_limit: 256
+  gateway:
+    cpus: 0.5
+    mem_limit: 128m
+    pids_limit: 128

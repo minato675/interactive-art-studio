@@ -1,0 +1,4 @@
+interface:
+  display_name: "라넬 EARTH 시나리오 감독"
+  short_description: "UE 템플릿부터 배경·에셋·배치·관객 반응·입자까지 시나리오 감독"
+  default_prompt: "$ranel-ue-media-art UE 지원 템플릿을 먼저 확인하고 배경·에셋·복제 배치·관객 반응·입자 연출을 포함한 전시 시나리오를 설계해줘."

@@ -1,0 +1,2117 @@
+{
+  "schemaVersion": 1,
+  "runtimeCommit": "aac9b623d387d48a3748eb33bae7a437aba062b2",
+  "notes": "scripts/extract_scene_structs.py가 UE 헤더에서 생성합니다. 직접 고치지 말고 다시 생성하세요. 생성자 안에서 바꾸는 기본값(예: Flock의 NeighborAvoidance)은 반영하지 않습니다.",
+  "tables": {
+    "Scene": "FArtworkSceneRow",
+    "Placements": "FArtworkPlacementRow",
+    "Conditions": "FArtworkConditionRow",
+    "Bindings": "FArtworkBindingRow",
+    "ExternalAssets": "FArtworkExternalAssetRow"
+  },
+  "patterns": {
+    "ActionSequence": "FArtworkActionSequenceProfileRow",
+    "AttractRepel": "FArtworkAttractRepelProfileRow",
+    "AudioVisual": "FArtworkAudioVisualProfileRow",
+    "Bend": "FArtworkBendProfileRow",
+    "Emit": "FArtworkEmitProfileRow",
+    "Float": "FArtworkFloatProfileRow",
+    "Flock": "FArtworkFlockProfileRow",
+    "FluidField": "FArtworkFluidFieldProfileRow",
+    "FootPlant": "FArtworkFootPlantProfileRow",
+    "GpuFlow": "FArtworkGpuFlowProfileRow",
+    "ImageFlow": "FArtworkImageFlowProfileRow",
+    "Locomotion": "FArtworkLocomotionProfileRow",
+    "MaterialScalar": "FArtworkMaterialProfileRow",
+    "ParticleField": "FArtworkParticleFieldProfileRow",
+    "RegionMedia": "FArtworkRegionMediaProfileRow",
+    "Reveal": "FArtworkRevealProfileRow",
+    "SurfaceDeformation": "FArtworkSurfaceDeformationProfileRow",
+    "SurfacePaint": "FArtworkSurfacePaintProfileRow",
+    "TimedBloom": "FArtworkTimedBloomProfileRow"
+  },
+  "structs": {
+    "FArtworkActionContactSettings": {
+      "base": null,
+      "fields": {
+        "bEnabled": {
+          "type": "bool",
+          "default": false
+        },
+        "OffsetParameter": {
+          "type": "FName",
+          "default": null
+        },
+        "StrengthParameter": {
+          "type": "FName",
+          "default": null
+        }
+      }
+    },
+    "FArtworkActionExecutionSettings": {
+      "base": null,
+      "fields": {
+        "InputExitPolicy": {
+          "type": "EArtworkActionExitPolicy",
+          "default": "ProfileDefault"
+        },
+        "ReentryPolicy": {
+          "type": "EArtworkActionReentryPolicy",
+          "default": "Ignore"
+        },
+        "ReturnSeconds": {
+          "type": "float",
+          "default": 0.4
+        }
+      }
+    },
+    "FArtworkActionPhaseSettings": {
+      "base": null,
+      "fields": {
+        "bEnabled": {
+          "type": "bool",
+          "default": false
+        },
+        "OpeningEndSeconds": {
+          "type": "float",
+          "default": 1.0
+        },
+        "ClosingStartSeconds": {
+          "type": "float",
+          "default": 3.0
+        },
+        "bCloseOnInputExit": {
+          "type": "bool",
+          "default": false
+        }
+      }
+    },
+    "FArtworkActionSequenceProfileRow": {
+      "base": null,
+      "fields": {
+        "CueTable": {
+          "type": "TSoftObjectPtr<UDataTable>",
+          "default": null
+        },
+        "bEnableReaction": {
+          "type": "bool",
+          "default": true
+        },
+        "Phases": {
+          "type": "FArtworkActionPhaseSettings",
+          "default": null
+        },
+        "Execution": {
+          "type": "FArtworkActionExecutionSettings",
+          "default": null
+        },
+        "Contact": {
+          "type": "FArtworkActionContactSettings",
+          "default": null
+        },
+        "AmbientAnimation": {
+          "type": "TSoftObjectPtr<UAnimationAsset>",
+          "default": null
+        },
+        "AmbientBlendAtRest": {
+          "type": "FVector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "AmbientBlendWhenActive": {
+          "type": "FVector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "AmbientPlayRate": {
+          "type": "float",
+          "default": 1.0
+        },
+        "bUseMotionForAmbient": {
+          "type": "bool",
+          "default": false
+        },
+        "MotionSpeedAtFullBlend": {
+          "type": "float",
+          "default": 250.0
+        },
+        "bScaleMotionSpeedByVisualScale": {
+          "type": "bool",
+          "default": false
+        },
+        "MotionTurnRateAtFullBlend": {
+          "type": "float",
+          "default": 90.0
+        },
+        "AmbientTurnBlendOffset": {
+          "type": "FVector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "MotionBlendResponseSpeed": {
+          "type": "float",
+          "default": 6.0
+        },
+        "MotionPlayRateRange": {
+          "type": "FVector2D",
+          "default": [
+            1.0,
+            1.0
+          ]
+        },
+        "BlendInSeconds": {
+          "type": "float",
+          "default": 0.0
+        },
+        "BlendOutSeconds": {
+          "type": "float",
+          "default": 0.0
+        },
+        "DurationSeconds": {
+          "type": "float",
+          "default": 1.0
+        },
+        "CooldownSeconds": {
+          "type": "float",
+          "default": 0.0
+        },
+        "ReplayPolicy": {
+          "type": "EArtworkReplayPolicy",
+          "default": "AfterExit"
+        }
+      }
+    },
+    "FArtworkAttractRepelProfileRow": {
+      "base": null,
+      "fields": {
+        "bRepel": {
+          "type": "bool",
+          "default": true
+        },
+        "AccelerationCmPerSecondSquared": {
+          "type": "float",
+          "default": 800.0
+        },
+        "ReturnStiffnessPerSecondSquared": {
+          "type": "float",
+          "default": 12.0
+        },
+        "DampingPerSecond": {
+          "type": "float",
+          "default": 7.0
+        },
+        "MaxSpeedCmPerSecond": {
+          "type": "float",
+          "default": 500.0
+        },
+        "MaxOffsetCm": {
+          "type": "float",
+          "default": 250.0
+        },
+        "CenterFallbackDirectionYZ": {
+          "type": "FVector",
+          "default": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "FArtworkAudioVisualProfileRow": {
+      "base": null,
+      "fields": {
+        "Sound": {
+          "type": "TSoftObjectPtr<USoundWave>",
+          "default": null
+        },
+        "Playback": {
+          "type": "EArtworkAudioPlayback",
+          "default": "LoopWhileContact"
+        },
+        "VisualParameter": {
+          "type": "FName",
+          "default": "AudioBrightness"
+        },
+        "RestVisualValue": {
+          "type": "float",
+          "default": 0.0
+        },
+        "ActiveVisualValue": {
+          "type": "float",
+          "default": 1.0
+        },
+        "StartDelaySeconds": {
+          "type": "float",
+          "default": 0.0
+        },
+        "FadeInSeconds": {
+          "type": "float",
+          "default": 0.35
+        },
+        "FadeOutSeconds": {
+          "type": "float",
+          "default": 0.5
+        },
+        "MaximumVolume": {
+          "type": "float",
+          "default": 0.5
+        },
+        "RestPitch": {
+          "type": "float",
+          "default": 0.8
+        },
+        "ActivePitch": {
+          "type": "float",
+          "default": 1.2
+        }
+      }
+    },
+    "FArtworkBendProfileRow": {
+      "base": null,
+      "fields": {
+        "MaximumBendCm": {
+          "type": "float",
+          "default": 60.0
+        },
+        "ResponseSpeed": {
+          "type": "float",
+          "default": 5.0
+        },
+        "RecoverySpeed": {
+          "type": "float",
+          "default": 2.0
+        },
+        "IdleWindCm": {
+          "type": "float",
+          "default": 3.0
+        },
+        "LeafFlutterCm": {
+          "type": "float",
+          "default": 1.0
+        }
+      }
+    },
+    "FArtworkBindingRow": {
+      "base": null,
+      "fields": {
+        "TargetScope": {
+          "type": "EArtworkTargetScope",
+          "default": "Legacy"
+        },
+        "PlacementId": {
+          "type": "FName",
+          "default": null
+        },
+        "GroupId": {
+          "type": "FName",
+          "default": null
+        },
+        "PatternId": {
+          "type": "FName",
+          "default": null
+        },
+        "ProfileId": {
+          "type": "FName",
+          "default": null
+        },
+        "ConditionId": {
+          "type": "FName",
+          "default": null
+        },
+        "AttackSeconds": {
+          "type": "float",
+          "default": 0.0
+        },
+        "ReleaseSeconds": {
+          "type": "float",
+          "default": 0.0
+        }
+      }
+    },
+    "FArtworkConditionRow": {
+      "base": null,
+      "fields": {
+        "Type": {
+          "type": "EArtworkConditionType",
+          "default": "Proximity"
+        },
+        "Region": {
+          "type": "EArtworkConditionRegion",
+          "default": "Target"
+        },
+        "Signal": {
+          "type": "FArtworkSignalRule",
+          "default": null
+        },
+        "Anchor": {
+          "type": "EArtworkConditionAnchor",
+          "default": "Placement"
+        },
+        "Shape": {
+          "type": "EArtworkConditionShape",
+          "default": "Circle"
+        },
+        "SourceId": {
+          "type": "FName",
+          "default": "td_main/forest_hand"
+        },
+        "SourceIds": {
+          "type": "TArray<FName>",
+          "default": null
+        },
+        "ContactSelection": {
+          "type": "EArtworkContactSelection",
+          "default": "Closest"
+        },
+        "MaxContacts": {
+          "type": "int32",
+          "default": 8
+        },
+        "MaximumContinuityDistanceUV": {
+          "type": "float",
+          "default": 0.35
+        },
+        "SampleId": {
+          "type": "FName",
+          "default": "position_uv"
+        },
+        "CoordinateSpace": {
+          "type": "FName",
+          "default": "mediapipe_image_uv"
+        },
+        "SubjectId": {
+          "type": "FName",
+          "default": null
+        },
+        "RadiusCm": {
+          "type": "float",
+          "default": 300.0
+        },
+        "ExitRadiusCm": {
+          "type": "float",
+          "default": 0.0
+        },
+        "HalfExtentCm": {
+          "type": "FVector2D",
+          "default": [
+            300.0,
+            200.0
+          ]
+        },
+        "ExitPaddingCm": {
+          "type": "float",
+          "default": 0.0
+        },
+        "DwellSeconds": {
+          "type": "float",
+          "default": 0.0
+        }
+      }
+    },
+    "FArtworkDeformationSettings": {
+      "base": null,
+      "fields": {
+        "Mode": {
+          "type": "EArtworkSurfaceDeformationMode",
+          "default": "Ripple"
+        },
+        "Columns": {
+          "type": "int32",
+          "default": 65
+        },
+        "Rows": {
+          "type": "int32",
+          "default": 37
+        },
+        "WaveSpeedCmPerSecond": {
+          "type": "float",
+          "default": 250.0
+        },
+        "DampingPerSecond": {
+          "type": "float",
+          "default": 3.0
+        },
+        "ReturnFrequencyHz": {
+          "type": "float",
+          "default": 1.0
+        },
+        "InfluenceRadiusCm": {
+          "type": "float",
+          "default": 140.0
+        },
+        "RippleImpulseCmPerSecond": {
+          "type": "float",
+          "default": 100.0
+        },
+        "PressAccelerationCmPerSecondSquared": {
+          "type": "float",
+          "default": 1000.0
+        },
+        "MaximumDisplacementCm": {
+          "type": "float",
+          "default": 40.0
+        },
+        "MaximumVelocityCmPerSecond": {
+          "type": "float",
+          "default": 200.0
+        }
+      }
+    },
+    "FArtworkDepthMovementSettings": {
+      "base": null,
+      "fields": {
+        "bEnabled": {
+          "type": "bool",
+          "default": false
+        },
+        "MinOffsetCm": {
+          "type": "float",
+          "default": 0.0
+        },
+        "MaxOffsetCm": {
+          "type": "float",
+          "default": 700.0
+        },
+        "MinimumTurnSpeedFraction": {
+          "type": "float",
+          "default": 0.4
+        }
+      }
+    },
+    "FArtworkEmitProfileRow": {
+      "base": null,
+      "fields": {
+        "Mesh": {
+          "type": "TSoftObjectPtr<UStaticMesh>",
+          "default": null
+        },
+        "Material": {
+          "type": "TSoftObjectPtr<UMaterialInterface>",
+          "default": null
+        },
+        "BurstCount": {
+          "type": "int32",
+          "default": 8
+        },
+        "MaxInstances": {
+          "type": "int32",
+          "default": 64
+        },
+        "CooldownSeconds": {
+          "type": "float",
+          "default": 0.2
+        },
+        "LifetimeSeconds": {
+          "type": "float",
+          "default": 1.5
+        },
+        "SpeedCmPerSecond": {
+          "type": "float",
+          "default": 150.0
+        },
+        "ForwardOffsetCm": {
+          "type": "float",
+          "default": 0.0
+        },
+        "DirectionYZ": {
+          "type": "FVector",
+          "default": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "SpreadDegrees": {
+          "type": "float",
+          "default": 360.0
+        },
+        "Scale": {
+          "type": "float",
+          "default": 0.1
+        },
+        "VisualRotation": {
+          "type": "FRotator",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "EndScaleFraction": {
+          "type": "float",
+          "default": 1.0
+        },
+        "DragPerSecond": {
+          "type": "float",
+          "default": 0.0
+        },
+        "Seed": {
+          "type": "int32",
+          "default": 1
+        }
+      }
+    },
+    "FArtworkEvasionSettings": {
+      "base": null,
+      "fields": {
+        "MinimumSeconds": {
+          "type": "float",
+          "default": 0.6
+        },
+        "MaximumSeconds": {
+          "type": "float",
+          "default": 3.0
+        },
+        "SafeDistanceCm": {
+          "type": "float",
+          "default": 350.0
+        },
+        "RecoverySeconds": {
+          "type": "float",
+          "default": 1.0
+        },
+        "RearmDelaySeconds": {
+          "type": "float",
+          "default": 0.5
+        },
+        "bRequireExitToRearm": {
+          "type": "bool",
+          "default": true
+        }
+      }
+    },
+    "FArtworkExternalAssetRow": {
+      "base": null,
+      "fields": {
+        "MeshFile": {
+          "type": "FString",
+          "default": null
+        },
+        "SkeletalMeshPack": {
+          "type": "FString",
+          "default": null
+        },
+        "ImageFile": {
+          "type": "FString",
+          "default": null
+        },
+        "VideoFile": {
+          "type": "FString",
+          "default": null
+        },
+        "TextureParameter": {
+          "type": "FName",
+          "default": null
+        }
+      }
+    },
+    "FArtworkFloatProfileRow": {
+      "base": null,
+      "fields": {
+        "AmplitudeCm": {
+          "type": "FVector",
+          "default": [
+            0.0,
+            0.0,
+            30.0
+          ]
+        },
+        "PeriodSeconds": {
+          "type": "float",
+          "default": 4.0
+        },
+        "PhaseDegrees": {
+          "type": "float",
+          "default": 0.0
+        },
+        "ResponseSpeed": {
+          "type": "float",
+          "default": 5.0
+        }
+      }
+    },
+    "FArtworkFlockProfileRow": {
+      "base": "FArtworkLocomotionProfileRow",
+      "fields": {
+        "Flocking": {
+          "type": "FArtworkFlockSettings",
+          "default": null
+        }
+      }
+    },
+    "FArtworkFlockSettings": {
+      "base": null,
+      "fields": {
+        "PerceptionRadiusCm": {
+          "type": "float",
+          "default": 800.0
+        },
+        "SeparationRadiusCm": {
+          "type": "float",
+          "default": 220.0
+        },
+        "MaxNeighbors": {
+          "type": "int32",
+          "default": 24
+        },
+        "SeparationWeight": {
+          "type": "float",
+          "default": 3.0
+        },
+        "AlignmentWeight": {
+          "type": "float",
+          "default": 1.5
+        },
+        "CohesionWeight": {
+          "type": "float",
+          "default": 1.5
+        },
+        "WanderWeight": {
+          "type": "float",
+          "default": 0.2
+        },
+        "SteeringResponseSeconds": {
+          "type": "float",
+          "default": 0.5
+        },
+        "HandReaction": {
+          "type": "EArtworkFlockHandReaction",
+          "default": "Scatter"
+        },
+        "HandRadiusCm": {
+          "type": "float",
+          "default": 600.0
+        },
+        "HandWeight": {
+          "type": "float",
+          "default": 4.0
+        },
+        "HandSpeedMultiplier": {
+          "type": "float",
+          "default": 1.5
+        },
+        "GroupWeightWhileScattering": {
+          "type": "float",
+          "default": 0.15
+        },
+        "GroupWeightWhileFollowing": {
+          "type": "float",
+          "default": 0.15
+        },
+        "FollowArrivalRadiusCm": {
+          "type": "float",
+          "default": 200.0
+        },
+        "MinimumFollowSpeedFraction": {
+          "type": "float",
+          "default": 0.3
+        },
+        "FlowSpeedCmPerSecond": {
+          "type": "float",
+          "default": 80.0
+        },
+        "BurstSpeedCmPerSecond": {
+          "type": "float",
+          "default": 900.0
+        },
+        "BurstSeconds": {
+          "type": "float",
+          "default": 1.2
+        },
+        "OrbitRadiusCm": {
+          "type": "float",
+          "default": 350.0
+        }
+      }
+    },
+    "FArtworkFluidFieldProfileRow": {
+      "base": null,
+      "fields": {
+        "Field": {
+          "type": "FArtworkFluidSettings",
+          "default": null
+        },
+        "TextureParameter": {
+          "type": "FName",
+          "default": "FluidTexture"
+        },
+        "ContactColors": {
+          "type": "TArray<FLinearColor>",
+          "default": null
+        },
+        "bFlipU": {
+          "type": "bool",
+          "default": false
+        },
+        "bFlipV": {
+          "type": "bool",
+          "default": false
+        },
+        "IdleInkDropsPerSecond": {
+          "type": "float",
+          "default": 0.0
+        },
+        "IdleInkSeconds": {
+          "type": "float",
+          "default": 2.5
+        },
+        "IdleInkDriftCmPerSecond": {
+          "type": "float",
+          "default": 60.0
+        },
+        "IdleInkColors": {
+          "type": "TArray<FLinearColor>",
+          "default": null
+        },
+        "IdleInkAreaMin": {
+          "type": "FVector2D",
+          "default": [
+            0.1,
+            0.1
+          ]
+        },
+        "IdleInkAreaMax": {
+          "type": "FVector2D",
+          "default": [
+            0.9,
+            0.9
+          ]
+        },
+        "IdleInkSeed": {
+          "type": "int32",
+          "default": 11
+        }
+      }
+    },
+    "FArtworkFluidSettings": {
+      "base": null,
+      "fields": {
+        "Columns": {
+          "type": "int32",
+          "default": 96
+        },
+        "Rows": {
+          "type": "int32",
+          "default": 54
+        },
+        "SolverIterations": {
+          "type": "int32",
+          "default": 24
+        },
+        "InfluenceRadiusCm": {
+          "type": "float",
+          "default": 180.0
+        },
+        "MotionForcePerSecond": {
+          "type": "float",
+          "default": 8.0
+        },
+        "MaximumAccelerationCmPerSecondSquared": {
+          "type": "float",
+          "default": 4000.0
+        },
+        "MaximumVelocityCmPerSecond": {
+          "type": "float",
+          "default": 500.0
+        },
+        "ViscosityCmSquaredPerSecond": {
+          "type": "float",
+          "default": 10.0
+        },
+        "DyeDiffusionCmSquaredPerSecond": {
+          "type": "float",
+          "default": 10.0
+        },
+        "VelocityDampingPerSecond": {
+          "type": "float",
+          "default": 1.0
+        },
+        "ReleaseDampingPerSecond": {
+          "type": "float",
+          "default": 0.0
+        },
+        "DyeHalfLifeSeconds": {
+          "type": "float",
+          "default": 3.0
+        },
+        "DyePerSecond": {
+          "type": "float",
+          "default": 4.0
+        },
+        "AmbientAccelerationCmPerSecondSquared": {
+          "type": "float",
+          "default": 0.0
+        },
+        "AmbientScaleCm": {
+          "type": "float",
+          "default": 600.0
+        },
+        "AmbientPeriodSeconds": {
+          "type": "float",
+          "default": 30.0
+        }
+      }
+    },
+    "FArtworkFootPlantChain": {
+      "base": null,
+      "fields": {
+        "UpperBone": {
+          "type": "FName",
+          "default": null
+        },
+        "LowerBone": {
+          "type": "FName",
+          "default": null
+        },
+        "FootBone": {
+          "type": "FName",
+          "default": null
+        },
+        "ContactCurve": {
+          "type": "FName",
+          "default": null
+        }
+      }
+    },
+    "FArtworkFootPlantProfileRow": {
+      "base": null,
+      "fields": {
+        "Feet": {
+          "type": "TArray<FArtworkFootPlantChain>",
+          "default": null
+        },
+        "LockThreshold": {
+          "type": "float",
+          "default": 0.9
+        },
+        "ReleaseThreshold": {
+          "type": "float",
+          "default": 0.75
+        },
+        "BlendInSeconds": {
+          "type": "float",
+          "default": 0.05
+        },
+        "ReleaseSeconds": {
+          "type": "float",
+          "default": 0.1
+        },
+        "MaximumReleaseSpeedCmPerSecond": {
+          "type": "float",
+          "default": 40.0
+        },
+        "MaximumCorrectionCm": {
+          "type": "float",
+          "default": 25.0
+        },
+        "ReachFraction": {
+          "type": "float",
+          "default": 0.98
+        },
+        "TeleportResetDistanceCm": {
+          "type": "float",
+          "default": 200.0
+        }
+      }
+    },
+    "FArtworkGpuFlowProfileRow": {
+      "base": null,
+      "fields": {
+        "System": {
+          "type": "TSoftObjectPtr<UNiagaraSystem>",
+          "default": null
+        },
+        "Material": {
+          "type": "TSoftObjectPtr<UMaterialInterface>",
+          "default": null
+        },
+        "Count": {
+          "type": "int32",
+          "default": 32768
+        },
+        "Seed": {
+          "type": "int32",
+          "default": 23
+        },
+        "AreaMin": {
+          "type": "FVector2D",
+          "default": [
+            0.03,
+            0.04
+          ]
+        },
+        "AreaMax": {
+          "type": "FVector2D",
+          "default": [
+            0.97,
+            0.96
+          ]
+        },
+        "ForwardOffsetCm": {
+          "type": "float",
+          "default": 50.0
+        },
+        "DepthCm": {
+          "type": "float",
+          "default": 60.0
+        },
+        "SizeRangeCm": {
+          "type": "FVector2D",
+          "default": [
+            1.2,
+            3.0
+          ]
+        },
+        "AmbientVelocity": {
+          "type": "FVector2D",
+          "default": [
+            30.0,
+            8.0
+          ]
+        },
+        "CurlSpeed": {
+          "type": "float",
+          "default": 150.0
+        },
+        "CurlScaleCm": {
+          "type": "float",
+          "default": 420.0
+        },
+        "CurlPeriodSeconds": {
+          "type": "float",
+          "default": 16.0
+        },
+        "ReactionRadiusCm": {
+          "type": "float",
+          "default": 480.0
+        },
+        "RepulsionSpeed": {
+          "type": "float",
+          "default": 450.0
+        },
+        "SwirlSpeed": {
+          "type": "float",
+          "default": 600.0
+        },
+        "HandVelocityGain": {
+          "type": "float",
+          "default": 0.7
+        },
+        "GlobalMotionGain": {
+          "type": "float",
+          "default": 0.2
+        },
+        "ResponseSeconds": {
+          "type": "float",
+          "default": 0.18
+        },
+        "RecoverySeconds": {
+          "type": "float",
+          "default": 2.2
+        },
+        "MaximumSpeed": {
+          "type": "float",
+          "default": 1500.0
+        },
+        "LifetimeSeconds": {
+          "type": "float",
+          "default": 12.0
+        },
+        "TrailSeconds": {
+          "type": "float",
+          "default": 0.24
+        },
+        "TrailWidthCm": {
+          "type": "float",
+          "default": 0.8
+        },
+        "RestColor": {
+          "type": "FLinearColor",
+          "default": [
+            0.03,
+            0.45,
+            1.4,
+            0.65
+          ]
+        },
+        "ActiveColor": {
+          "type": "FLinearColor",
+          "default": [
+            2.2,
+            0.5,
+            0.08,
+            0.9
+          ]
+        },
+        "FlowFieldPlacementId": {
+          "type": "FName",
+          "default": null
+        },
+        "FlowFieldGain": {
+          "type": "float",
+          "default": 0.0
+        },
+        "SceneEnergyGain": {
+          "type": "float",
+          "default": 0.0
+        }
+      }
+    },
+    "FArtworkImageFlowProfileRow": {
+      "base": null,
+      "fields": {
+        "Field": {
+          "type": "FArtworkFluidSettings",
+          "default": null
+        },
+        "SourceType": {
+          "type": "EArtworkImageFlowSource",
+          "default": "StillImage"
+        },
+        "SourceImage": {
+          "type": "TSoftObjectPtr<UTexture2D>",
+          "default": null
+        },
+        "SourceTextureParameter": {
+          "type": "FName",
+          "default": "SourceImage"
+        },
+        "OutputTextureParameter": {
+          "type": "FName",
+          "default": "FlowImage"
+        },
+        "StepMaterial": {
+          "type": "TSoftObjectPtr<UMaterialInterface>",
+          "default": null
+        },
+        "VideoStepMaterial": {
+          "type": "TSoftObjectPtr<UMaterialInterface>",
+          "default": null
+        },
+        "VideoResolveMaterial": {
+          "type": "TSoftObjectPtr<UMaterialInterface>",
+          "default": null
+        },
+        "ImageWidth": {
+          "type": "int32",
+          "default": 1024
+        },
+        "ImageHeight": {
+          "type": "int32",
+          "default": 576
+        },
+        "MixingPerSecond": {
+          "type": "float",
+          "default": 4.0
+        },
+        "MixingRadiusPixels": {
+          "type": "float",
+          "default": 2.0
+        },
+        "RestoreHalfLifeSeconds": {
+          "type": "float",
+          "default": 20.0
+        },
+        "bFlipU": {
+          "type": "bool",
+          "default": false
+        },
+        "bFlipV": {
+          "type": "bool",
+          "default": false
+        },
+        "SceneEnergyAmbientScale": {
+          "type": "float",
+          "default": 1.0
+        }
+      }
+    },
+    "FArtworkLocomotionProfileRow": {
+      "base": null,
+      "fields": {
+        "BoundsMinUV": {
+          "type": "FVector2D",
+          "default": [
+            0.02,
+            0.02
+          ]
+        },
+        "BoundsMaxUV": {
+          "type": "FVector2D",
+          "default": [
+            0.98,
+            0.98
+          ]
+        },
+        "ScreenOverscanUV": {
+          "type": "FVector2D",
+          "default": [
+            0.0,
+            0.0
+          ]
+        },
+        "BoundaryPaddingCm": {
+          "type": "float",
+          "default": 30.0
+        },
+        "CruiseSpeedCmPerSecond": {
+          "type": "float",
+          "default": 180.0
+        },
+        "AccelerationCmPerSecondSquared": {
+          "type": "float",
+          "default": 160.0
+        },
+        "DecelerationCmPerSecondSquared": {
+          "type": "float",
+          "default": 300.0
+        },
+        "TurnSpeedDegreesPerSecond": {
+          "type": "float",
+          "default": 90.0
+        },
+        "HeadingResponseSeconds": {
+          "type": "float",
+          "default": 0.35
+        },
+        "TurnAccelerationDegreesPerSecondSquared": {
+          "type": "float",
+          "default": 240.0
+        },
+        "MaxPitchAngleDegrees": {
+          "type": "float",
+          "default": 90.0
+        },
+        "MaxBankAngleDegrees": {
+          "type": "float",
+          "default": 0.0
+        },
+        "BankAtTurnRateDegreesPerSecond": {
+          "type": "float",
+          "default": 90.0
+        },
+        "BankResponseSeconds": {
+          "type": "float",
+          "default": 0.4
+        },
+        "MaxBankSpeedDegreesPerSecond": {
+          "type": "float",
+          "default": 30.0
+        },
+        "BoundaryLookAheadSeconds": {
+          "type": "float",
+          "default": 2.0
+        },
+        "BoundaryRecoveryMarginCm": {
+          "type": "float",
+          "default": 80.0
+        },
+        "ArrivalRadiusCm": {
+          "type": "float",
+          "default": 80.0
+        },
+        "GoalIntervalMinSeconds": {
+          "type": "float",
+          "default": 3.0
+        },
+        "GoalIntervalMaxSeconds": {
+          "type": "float",
+          "default": 6.0
+        },
+        "RandomSeed": {
+          "type": "int32",
+          "default": 173
+        },
+        "TouchReaction": {
+          "type": "EArtworkMotionReaction",
+          "default": "Continue"
+        },
+        "EvadeSpeedMultiplier": {
+          "type": "float",
+          "default": 1.4
+        },
+        "bScaleEvadeSpeedByInputStrength": {
+          "type": "bool",
+          "default": false
+        },
+        "bUseEvasionLifecycle": {
+          "type": "bool",
+          "default": false
+        },
+        "Evasion": {
+          "type": "FArtworkEvasionSettings",
+          "default": null
+        },
+        "NeighborAvoidance": {
+          "type": "FArtworkNeighborAvoidanceSettings",
+          "default": null
+        },
+        "DepthMovement": {
+          "type": "FArtworkDepthMovementSettings",
+          "default": null
+        },
+        "bLockHeightToPlacement": {
+          "type": "bool",
+          "default": false
+        },
+        "VisualForwardYawCorrectionDegrees": {
+          "type": "float",
+          "default": 0.0
+        },
+        "bPauseDuringAction": {
+          "type": "bool",
+          "default": true
+        }
+      }
+    },
+    "FArtworkMaterialProfileRow": {
+      "base": null,
+      "fields": {
+        "ParameterName": {
+          "type": "FName",
+          "default": "GlowStrength"
+        },
+        "RestValue": {
+          "type": "float",
+          "default": 0.1
+        },
+        "ActiveValue": {
+          "type": "float",
+          "default": 4.0
+        },
+        "ResponseSpeed": {
+          "type": "float",
+          "default": 5.0
+        },
+        "bUseSceneMotionEnergy": {
+          "type": "bool",
+          "default": false
+        },
+        "bIntegrateValue": {
+          "type": "bool",
+          "default": false
+        }
+      }
+    },
+    "FArtworkNeighborAvoidanceSettings": {
+      "base": null,
+      "fields": {
+        "bEnabled": {
+          "type": "bool",
+          "default": false
+        },
+        "GroupId": {
+          "type": "FName",
+          "default": null
+        },
+        "RadiusCm": {
+          "type": "float",
+          "default": 100.0
+        },
+        "LookAheadSeconds": {
+          "type": "float",
+          "default": 1.5
+        },
+        "SteeringStrength": {
+          "type": "float",
+          "default": 1.5
+        },
+        "ResponseSeconds": {
+          "type": "float",
+          "default": 0.35
+        },
+        "SlowdownFraction": {
+          "type": "float",
+          "default": 0.25
+        },
+        "PassingClearanceCm": {
+          "type": "float",
+          "default": 30.0
+        }
+      }
+    },
+    "FArtworkPaintBrushMask": {
+      "base": null,
+      "fields": {
+        "Width": {
+          "type": "int32",
+          "default": 0
+        },
+        "Height": {
+          "type": "int32",
+          "default": 0
+        },
+        "Opacity": {
+          "type": "TArray<float>",
+          "default": null
+        }
+      }
+    },
+    "FArtworkPaintSpeedResponse": {
+      "base": null,
+      "fields": {
+        "bEnabled": {
+          "type": "bool",
+          "default": false
+        },
+        "SlowSpeedCmPerSecond": {
+          "type": "float",
+          "default": 0.0
+        },
+        "FastSpeedCmPerSecond": {
+          "type": "float",
+          "default": 600.0
+        },
+        "SlowRadiusScale": {
+          "type": "float",
+          "default": 1.0
+        },
+        "FastRadiusScale": {
+          "type": "float",
+          "default": 1.0
+        },
+        "SlowInkScale": {
+          "type": "float",
+          "default": 1.0
+        },
+        "FastInkScale": {
+          "type": "float",
+          "default": 1.0
+        }
+      }
+    },
+    "FArtworkParticleFieldProfileRow": {
+      "base": null,
+      "fields": {
+        "System": {
+          "type": "TSoftObjectPtr<UNiagaraSystem>",
+          "default": null
+        },
+        "Material": {
+          "type": "TSoftObjectPtr<UMaterialInterface>",
+          "default": null
+        },
+        "Motion": {
+          "type": "FArtworkParticleFieldSettings",
+          "default": null
+        },
+        "TrailMaterial": {
+          "type": "TSoftObjectPtr<UMaterialInterface>",
+          "default": null
+        },
+        "bUseConditionStrength": {
+          "type": "bool",
+          "default": false
+        },
+        "AreaMin": {
+          "type": "FVector2D",
+          "default": [
+            0.02,
+            0.02
+          ]
+        },
+        "AreaMax": {
+          "type": "FVector2D",
+          "default": [
+            0.98,
+            0.98
+          ]
+        },
+        "ForwardOffsetCm": {
+          "type": "float",
+          "default": 20.0
+        },
+        "Tint": {
+          "type": "FLinearColor",
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "FArtworkParticleFieldSettings": {
+      "base": null,
+      "fields": {
+        "Count": {
+          "type": "int32",
+          "default": 400
+        },
+        "Seed": {
+          "type": "int32",
+          "default": 7
+        },
+        "AmbientVelocity": {
+          "type": "FVector2D",
+          "default": [
+            25.0,
+            -15.0
+          ]
+        },
+        "DriftSpeed": {
+          "type": "float",
+          "default": 18.0
+        },
+        "DriftPeriodSeconds": {
+          "type": "float",
+          "default": 6.0
+        },
+        "ReactionRadiusCm": {
+          "type": "float",
+          "default": 220.0
+        },
+        "RepulsionSpeed": {
+          "type": "float",
+          "default": 400.0
+        },
+        "SwirlSpeed": {
+          "type": "float",
+          "default": 140.0
+        },
+        "ResponseSeconds": {
+          "type": "float",
+          "default": 0.2
+        },
+        "RecoverySeconds": {
+          "type": "float",
+          "default": 1.5
+        },
+        "MaxSpeed": {
+          "type": "float",
+          "default": 700.0
+        },
+        "SizeRangeCm": {
+          "type": "FVector2D",
+          "default": [
+            12.0,
+            26.0
+          ]
+        },
+        "SpinDegreesPerSecond": {
+          "type": "float",
+          "default": 45.0
+        },
+        "Life": {
+          "type": "FArtworkParticleLifeSettings",
+          "default": null
+        },
+        "Trail": {
+          "type": "FArtworkParticleTrailSettings",
+          "default": null
+        }
+      }
+    },
+    "FArtworkParticleLifeSettings": {
+      "base": null,
+      "fields": {
+        "bEnabled": {
+          "type": "bool",
+          "default": false
+        },
+        "Source": {
+          "type": "EArtworkParticleEmissionSource",
+          "default": "Contacts"
+        },
+        "EmissionRatePerSecond": {
+          "type": "float",
+          "default": 40.0
+        },
+        "LifetimeRangeSeconds": {
+          "type": "FVector2D",
+          "default": [
+            1.0,
+            3.0
+          ]
+        },
+        "FadeInFraction": {
+          "type": "float",
+          "default": 0.1
+        },
+        "FadeOutFraction": {
+          "type": "float",
+          "default": 0.3
+        }
+      }
+    },
+    "FArtworkParticleTrailSettings": {
+      "base": null,
+      "fields": {
+        "bEnabled": {
+          "type": "bool",
+          "default": false
+        },
+        "MaximumPointsPerParticle": {
+          "type": "int32",
+          "default": 32
+        },
+        "SampleIntervalSeconds": {
+          "type": "float",
+          "default": 0.05
+        },
+        "HistorySeconds": {
+          "type": "float",
+          "default": 1.5
+        },
+        "WidthCm": {
+          "type": "float",
+          "default": 12.0
+        },
+        "MaximumSegmentCm": {
+          "type": "float",
+          "default": 200.0
+        }
+      }
+    },
+    "FArtworkPlacementRow": {
+      "base": null,
+      "fields": {
+        "ObjectId": {
+          "type": "FName",
+          "default": null
+        },
+        "GroupId": {
+          "type": "FName",
+          "default": null
+        },
+        "bAllowSceneReaction": {
+          "type": "bool",
+          "default": false
+        },
+        "Location": {
+          "type": "FVector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "Rotation": {
+          "type": "FRotator",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "Scale": {
+          "type": "FVector",
+          "default": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "FArtworkRegionMediaProfileRow": {
+      "base": null,
+      "fields": {
+        "OpacityParameter": {
+          "type": "FName",
+          "default": "RegionOpacity"
+        },
+        "FadeInSeconds": {
+          "type": "float",
+          "default": 0.35
+        },
+        "FadeOutSeconds": {
+          "type": "float",
+          "default": 0.5
+        },
+        "MinimumActiveSeconds": {
+          "type": "float",
+          "default": 0.0
+        },
+        "bControlPlayback": {
+          "type": "bool",
+          "default": false
+        },
+        "bRestartOnEntry": {
+          "type": "bool",
+          "default": false
+        },
+        "PlaybackMode": {
+          "type": "EArtworkRegionMediaPlaybackMode",
+          "default": "Loop"
+        },
+        "bFinishOnExit": {
+          "type": "bool",
+          "default": false
+        },
+        "CompletionPolicy": {
+          "type": "EArtworkRegionMediaCompletionPolicy",
+          "default": "HoldUntilExit"
+        },
+        "CompletionHoldSeconds": {
+          "type": "float",
+          "default": 0.0
+        }
+      }
+    },
+    "FArtworkRevealProfileRow": {
+      "base": null,
+      "fields": {
+        "RadiusUv": {
+          "type": "float",
+          "default": 0.15
+        },
+        "FeatherUv": {
+          "type": "float",
+          "default": 0.03
+        },
+        "ResponseSpeed": {
+          "type": "float",
+          "default": 8.0
+        },
+        "bFlipU": {
+          "type": "bool",
+          "default": false
+        },
+        "bFlipV": {
+          "type": "bool",
+          "default": false
+        }
+      }
+    },
+    "FArtworkSceneRow": {
+      "base": null,
+      "fields": {
+        "CameraLocation": {
+          "type": "FVector",
+          "default": [
+            2200.0,
+            0.0,
+            100.0
+          ]
+        },
+        "CameraRotation": {
+          "type": "FRotator",
+          "default": [
+            0.0,
+            180.0,
+            0.0
+          ]
+        },
+        "FieldOfView": {
+          "type": "float",
+          "default": 70.0
+        },
+        "AspectRatio": {
+          "type": "float",
+          "default": 1.7777777777777777
+        },
+        "SurfaceOrigin": {
+          "type": "FVector",
+          "default": [
+            300.0,
+            0.0,
+            100.0
+          ]
+        },
+        "SurfaceSize": {
+          "type": "FVector2D",
+          "default": [
+            2660.0,
+            1496.0
+          ]
+        },
+        "bMirrorHorizontal": {
+          "type": "bool",
+          "default": false
+        },
+        "bInvertVertical": {
+          "type": "bool",
+          "default": false
+        }
+      }
+    },
+    "FArtworkSignalRule": {
+      "base": null,
+      "fields": {
+        "ScalarUnit": {
+          "type": "FName",
+          "default": null
+        },
+        "MinimumValue": {
+          "type": "double",
+          "default": 0.0
+        },
+        "MaximumValue": {
+          "type": "double",
+          "default": 1.0
+        },
+        "ValueExitPadding": {
+          "type": "double",
+          "default": 0.0
+        },
+        "bExpectedBoolean": {
+          "type": "bool",
+          "default": true
+        },
+        "MinimumSpeedCmPerSecond": {
+          "type": "float",
+          "default": 100.0
+        },
+        "MaximumSpeedCmPerSecond": {
+          "type": "float",
+          "default": 4000.0
+        },
+        "SpeedExitPadding": {
+          "type": "float",
+          "default": 20.0
+        },
+        "DirectionYZ": {
+          "type": "FVector2D",
+          "default": [
+            1.0,
+            0.0
+          ]
+        },
+        "DirectionToleranceDegrees": {
+          "type": "float",
+          "default": 45.0
+        },
+        "DirectionExitPaddingDegrees": {
+          "type": "float",
+          "default": 10.0
+        },
+        "SweepDistanceCm": {
+          "type": "float",
+          "default": 120.0
+        },
+        "SweepPulseSeconds": {
+          "type": "float",
+          "default": 0.15
+        },
+        "SweepCooldownSeconds": {
+          "type": "float",
+          "default": 0.5
+        }
+      }
+    },
+    "FArtworkSurfaceDeformationProfileRow": {
+      "base": null,
+      "fields": {
+        "Surface": {
+          "type": "FArtworkDeformationSettings",
+          "default": null
+        },
+        "RestSagCm": {
+          "type": "float",
+          "default": 0.0
+        },
+        "RestTwistCm": {
+          "type": "float",
+          "default": 0.0
+        },
+        "RestFoldCm": {
+          "type": "float",
+          "default": 0.0
+        },
+        "HeightTextureParameter": {
+          "type": "FName",
+          "default": null
+        },
+        "AmbientDropsPerSecond": {
+          "type": "float",
+          "default": 0.0
+        },
+        "SceneEnergyDropsPerSecond": {
+          "type": "float",
+          "default": 0.0
+        },
+        "DropSeed": {
+          "type": "int32",
+          "default": 7
+        },
+        "DropAreaMin": {
+          "type": "FVector2D",
+          "default": [
+            0.06,
+            0.08
+          ]
+        },
+        "DropAreaMax": {
+          "type": "FVector2D",
+          "default": [
+            0.94,
+            0.92
+          ]
+        }
+      }
+    },
+    "FArtworkSurfacePaintProfileRow": {
+      "base": null,
+      "fields": {
+        "TextureParameter": {
+          "type": "FName",
+          "default": "PaintTexture"
+        },
+        "TextureWidth": {
+          "type": "int32",
+          "default": 256
+        },
+        "TextureHeight": {
+          "type": "int32",
+          "default": 144
+        },
+        "BrushRadius": {
+          "type": "float",
+          "default": 0.05
+        },
+        "FeatherFraction": {
+          "type": "float",
+          "default": 0.5
+        },
+        "InkPerSecond": {
+          "type": "float",
+          "default": 12.0
+        },
+        "BrushMask": {
+          "type": "FArtworkPaintBrushMask",
+          "default": null
+        },
+        "SpeedResponse": {
+          "type": "FArtworkPaintSpeedResponse",
+          "default": null
+        },
+        "FadeHalfLifeSeconds": {
+          "type": "float",
+          "default": 0.0
+        },
+        "ClearAfterIdleSeconds": {
+          "type": "float",
+          "default": 0.0
+        },
+        "StrokeColors": {
+          "type": "TArray<FLinearColor>",
+          "default": null
+        },
+        "bErase": {
+          "type": "bool",
+          "default": false
+        },
+        "MaximumJoinDistance": {
+          "type": "float",
+          "default": 0.35
+        },
+        "bFlipU": {
+          "type": "bool",
+          "default": false
+        },
+        "bFlipV": {
+          "type": "bool",
+          "default": false
+        },
+        "BristleAmount": {
+          "type": "float",
+          "default": 0.0
+        },
+        "BristleCount": {
+          "type": "int32",
+          "default": 18
+        },
+        "GrainAmount": {
+          "type": "float",
+          "default": 0.0
+        },
+        "GrainCellPixels": {
+          "type": "float",
+          "default": 3.0
+        },
+        "SceneEnergyRadiusScale": {
+          "type": "float",
+          "default": 1.0
+        },
+        "SceneEnergyInkScale": {
+          "type": "float",
+          "default": 1.0
+        }
+      }
+    },
+    "FArtworkTimedBloomProfileRow": {
+      "base": null,
+      "fields": {
+        "OpenParameterName": {
+          "type": "FName",
+          "default": "BloomOpen"
+        },
+        "GlowParameterName": {
+          "type": "FName",
+          "default": "GlowStrength"
+        },
+        "RestGlow": {
+          "type": "float",
+          "default": 0.02
+        },
+        "PeakGlow": {
+          "type": "float",
+          "default": 3.0
+        },
+        "GatherSeconds": {
+          "type": "float",
+          "default": 0.5
+        },
+        "OpenSeconds": {
+          "type": "float",
+          "default": 1.6
+        },
+        "HoldSeconds": {
+          "type": "float",
+          "default": 2.0
+        },
+        "CloseSeconds": {
+          "type": "float",
+          "default": 1.7
+        },
+        "PeakLightIntensity": {
+          "type": "float",
+          "default": 2500.0
+        },
+        "LightAttenuationRadiusCm": {
+          "type": "float",
+          "default": 900.0
+        },
+        "LightOffsetCm": {
+          "type": "FVector",
+          "default": [
+            80.0,
+            0.0,
+            350.0
+          ]
+        },
+        "LightColor": {
+          "type": "FLinearColor",
+          "default": [
+            1.0,
+            0.68,
+            0.32,
+            1.0
+          ]
+        },
+        "CoreMesh": {
+          "type": "TSoftObjectPtr<UStaticMesh>",
+          "default": null
+        },
+        "CoreMaterial": {
+          "type": "TSoftObjectPtr<UMaterialInterface>",
+          "default": null
+        },
+        "CoreGlowParameterName": {
+          "type": "FName",
+          "default": "CoreGlow"
+        },
+        "CoreOffsetCm": {
+          "type": "FVector",
+          "default": [
+            0.0,
+            0.0,
+            350.0
+          ]
+        },
+        "CoreScale": {
+          "type": "FVector",
+          "default": [
+            0.65,
+            0.65,
+            1.5
+          ]
+        }
+      }
+    }
+  },
+  "enums": {
+    "EArtworkActionExitPolicy": [
+      "ProfileDefault",
+      "CompleteSequence",
+      "CloseAfterOpening",
+      "ReturnToRest"
+    ],
+    "EArtworkActionReentryPolicy": [
+      "Ignore",
+      "QueueLatestEntry"
+    ],
+    "EArtworkAudioPlayback": [
+      "LoopWhileContact",
+      "OneShotPerCycle"
+    ],
+    "EArtworkConditionAnchor": [
+      "Placement",
+      "CurrentObject"
+    ],
+    "EArtworkConditionRegion": [
+      "Target",
+      "InputSurface"
+    ],
+    "EArtworkConditionShape": [
+      "Circle",
+      "Rectangle"
+    ],
+    "EArtworkConditionType": [
+      "Proximity",
+      "Presence",
+      "ScalarRange",
+      "Boolean",
+      "Speed",
+      "Direction",
+      "Sweep"
+    ],
+    "EArtworkContactSelection": [
+      "Closest",
+      "All"
+    ],
+    "EArtworkFlockHandReaction": [
+      "None",
+      "Scatter",
+      "Follow",
+      "Gesture"
+    ],
+    "EArtworkImageFlowSource": [
+      "StillImage",
+      "Video"
+    ],
+    "EArtworkMotionReaction": [
+      "Continue",
+      "Pause",
+      "Evade"
+    ],
+    "EArtworkParticleEmissionSource": [
+      "Area",
+      "Contacts"
+    ],
+    "EArtworkRegionMediaCompletionPolicy": [
+      "HoldUntilExit",
+      "FadeOut"
+    ],
+    "EArtworkRegionMediaPlaybackMode": [
+      "Loop",
+      "Once"
+    ],
+    "EArtworkReplayPolicy": [
+      "AfterExit",
+      "WhileHeldAfterCooldown"
+    ],
+    "EArtworkSurfaceDeformationMode": [
+      "Ripple",
+      "Elastic"
+    ],
+    "EArtworkTargetScope": [
+      "Legacy",
+      "Placement",
+      "Group",
+      "Scene"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+# wander_quad: 100cm quad on local XZ plane (normal +-Y), image top (head) = +X, wingspan = Z
+v 50 0 50
+v 50 0 -50
+v -50 0 -50
+v -50 0 50
+vt 0 1
+vt 1 1
+vt 1 0
+vt 0 0
+vn 0 1 0
+f 1/1/1 2/2/1 3/3/1
+f 1/1/1 3/3/1 4/4/1

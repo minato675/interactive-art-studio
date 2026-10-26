@@ -1,0 +1,517 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "RuntimeIntegration",
+  "catalogAsset": "/Game/ContentRuntime/RuntimeIntegrationProof/DA_Catalog",
+  "runtimeCommit": "aac9b623d387d48a3748eb33bae7a437aba062b2",
+  "provenance": "exported",
+  "notes": "export_catalog_unreal.py로 UE 에디터에서 내보냈습니다. 직접 고치지 마세요. runtimeCommit은 scene 계약 핀(aac9b62)입니다. 카탈로그 에셋은 interactive-runtime local/shared-catalog bb36122(라넬 main aac9b62 기반, 라넬 반영 전)에서 내보냈습니다. 각 계열 자산은 라넬 main에도 있지만, 공용 맵 카탈로그 등록(계열 객체 이름 · Sprite · Layer_* · Float 등)은 그 브랜치에만 있습니다. PC2 실행본도 그 브랜치(반투명 정렬 r.TranslucentSortPolicy=1 포함)로 빌드해야 합니다. 10/25: 같은 브랜치 9957d16(로컬 커밋, push 안 함)에서 다시 내보냄 — 나비 계열(Butterfly_AzureButterfly, 리그 CC0ButterflyV1) 추가, 캔버스 재질 4종(Fluid · Paint · Deformation · PigmentFlow)에 원화 입력 SourceImage 추가. C++ · 계약 헤더는 그대로라 runtimeCommit은 aac9b62 유지.",
+  "fixedStage": null,
+  "patterns": [
+    "ActionSequence",
+    "AttractRepel",
+    "AudioVisual",
+    "Bend",
+    "Emit",
+    "Float",
+    "Flock",
+    "FluidField",
+    "GpuFlow",
+    "ImageFlow",
+    "Locomotion",
+    "MaterialScalar",
+    "ParticleField",
+    "RegionMedia",
+    "Reveal",
+    "SurfaceDeformation",
+    "SurfacePaint",
+    "TimedBloom"
+  ],
+  "sounds": [
+    "/Game/ContentRuntime/AudioVisualProof/S_Loop.S_Loop",
+    "/Game/ContentRuntime/AudioVisualProof/S_OneShot.S_OneShot"
+  ],
+  "rigProfiles": [
+    "BloomV1",
+    "CC0ButterflyV1",
+    "SwimmerV1",
+    "WingedV1"
+  ],
+  "objects": {
+    "AudioVisual_Background": {
+      "role": "background",
+      "category": "",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "AudioVisual_Panel": {
+      "role": "panel",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Butterfly_AzureButterfly": {
+      "role": "prop",
+      "category": "WingedInsect",
+      "visualType": "SkeletalMesh",
+      "hasMaterial": true,
+      "rigProfileId": "CC0ButterflyV1",
+      "textureParameters": [
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Butterfly_Garden": {
+      "role": "prop",
+      "category": "Background",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Deformation_Background": {
+      "role": "background",
+      "category": "",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Deformation_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "PaintTexture",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Deformation_Unsupported": {
+      "role": "test",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "PaintTexture",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Deformation_WrongMaterial": {
+      "role": "test",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "PaintTexture",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "DrapedSilk_Veil": {
+      "role": "prop",
+      "category": "Sculpture",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "ElasticSilk_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "WaveTexture"
+      ],
+      "templatePatterns": []
+    },
+    "External_MoonlitBackdrop": {
+      "role": "background",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "GardenImage"
+      ],
+      "templatePatterns": []
+    },
+    "External_MoonlitSapling": {
+      "role": "plant",
+      "category": "Plant",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "SaplingColor"
+      ],
+      "templatePatterns": []
+    },
+    "Flock_Background": {
+      "role": "background",
+      "category": "",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Flock_BirdA": {
+      "role": "creature",
+      "category": "FlyingAnimal",
+      "visualType": "SkeletalMesh",
+      "hasMaterial": true,
+      "rigProfileId": "WingedV1",
+      "textureParameters": [
+        "BirdColor"
+      ],
+      "templatePatterns": []
+    },
+    "Flock_BirdB": {
+      "role": "creature",
+      "category": "FlyingAnimal",
+      "visualType": "SkeletalMesh",
+      "hasMaterial": true,
+      "rigProfileId": "WingedV1",
+      "textureParameters": [
+        "BirdColor"
+      ],
+      "templatePatterns": []
+    },
+    "Flock_FishA": {
+      "role": "creature",
+      "category": "SwimmingAnimal",
+      "visualType": "SkeletalMesh",
+      "hasMaterial": true,
+      "rigProfileId": "SwimmerV1",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Flock_FishB": {
+      "role": "creature",
+      "category": "SwimmingAnimal",
+      "visualType": "SkeletalMesh",
+      "hasMaterial": true,
+      "rigProfileId": "SwimmerV1",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Flock_Marker": {
+      "role": "test",
+      "category": "",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "FlowStir_Anchor": {
+      "role": "prop",
+      "category": "",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "FlowStir_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "FlowImage",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Fluid_Background": {
+      "role": "background",
+      "category": "",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Fluid_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "FluidTexture",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Fluid_Unsupported": {
+      "role": "test",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "FluidTexture",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Fluid_WrongMaterial": {
+      "role": "test",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "PaintTexture",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "GpuFlow_Stage": {
+      "role": "prop",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "ImageFlow_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "FlowImage",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "ImageFlow_Unsupported": {
+      "role": "test",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "FlowImage",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "ImageFlow_VideoCanvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "FlowImage",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Layer_Far": {
+      "role": "prop",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Layer_Mid": {
+      "role": "prop",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Layer_Near": {
+      "role": "prop",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Media_Background": {
+      "role": "background",
+      "category": "Background",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Media_ImagePanel": {
+      "role": "panel",
+      "category": "Media",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "RegionTexture"
+      ],
+      "templatePatterns": []
+    },
+    "Media_VideoPanel": {
+      "role": "panel",
+      "category": "Media",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "RegionTexture"
+      ],
+      "templatePatterns": []
+    },
+    "Object_Background": {
+      "role": "background",
+      "category": "",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Object_Flower": {
+      "role": "plant",
+      "category": "Plant",
+      "visualType": "SkeletalMesh",
+      "hasMaterial": true,
+      "rigProfileId": "BloomV1",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Object_GlowOrb": {
+      "role": "prop",
+      "category": "Prop",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Paint_Background": {
+      "role": "background",
+      "category": "",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "Paint_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "PaintTexture",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "Particles_Background": {
+      "role": "background",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [],
+      "templatePatterns": []
+    },
+    "PigmentFlow_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "FluidTexture",
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    },
+    "RippleLake_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "SourceImage",
+        "WaveTexture"
+      ],
+      "templatePatterns": []
+    },
+    "RippleStar_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "SourceImage",
+        "WaveTexture"
+      ],
+      "templatePatterns": []
+    },
+    "Ripple_Canvas": {
+      "role": "canvas",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "SourceImage",
+        "WaveTexture"
+      ],
+      "templatePatterns": []
+    },
+    "Sprite": {
+      "role": "prop",
+      "category": "Surface",
+      "visualType": "StaticMesh",
+      "hasMaterial": true,
+      "rigProfileId": "",
+      "textureParameters": [
+        "SourceImage"
+      ],
+      "templatePatterns": []
+    }
+  }
+}

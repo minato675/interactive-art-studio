@@ -1,0 +1,47 @@
+{
+  "template_version": 1,
+  "layer_side": "behind",
+  "far_hidden": false,
+  "label": "그림 위 물결(넓은 수면)",
+  "effect_x": 5,
+  "layers": [
+    "far"
+  ],
+  "far_target": "Canvas",
+  "water_from_alpha": true,
+  "release_binding": "Water",
+  "return_values": {
+    "instant": [
+      {
+        "path": [
+          "Profiles",
+          "SurfaceDeformation",
+          0,
+          "Surface",
+          "DampingPerSecond"
+        ],
+        "value": 3
+      }
+    ]
+  },
+  "influence_radius": {
+    "path": [
+      "Profiles",
+      "SurfaceDeformation",
+      0,
+      "Surface",
+      "InfluenceRadiusCm"
+    ],
+    "local": 60,
+    "wide": 120
+  },
+  "requires": {
+    "patterns": [
+      "SurfaceDeformation",
+      "MaterialScalar"
+    ],
+    "objects": [
+      "RippleStar_Canvas"
+    ]
+  }
+}

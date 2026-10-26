@@ -1,0 +1,62 @@
+[project]
+name = "s15p31a504"
+version = "0.1.0"
+description = "간접 표현 인터랙티브 미디어아트 생성 시스템 — 개발용 작업 공간 (apps/ · packages/ 전체 설치)"
+requires-python = ">=3.12"
+dependencies = [
+    "a504-central",
+    "a504-contracts",
+    "a504-db",
+    "a504-studio",
+    "a504-node-agent",
+    "a504-show-agent",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "httpx>=0.27",
+    "ruff>=0.6",
+    "pyyaml>=6,<7",
+]
+
+[tool.uv]
+package = false
+
+# 설치 단위: apps/ 아래는 장비별 실행 앱, packages/ 아래는 앱이 가져다 쓰는 라이브러리.
+# node_agent는 임대·파일·상태 기반을, show_agent는 선택적 UE 프로세스 관리도 제공한다.
+# operator(PySide6)는 멤버로만 두고 위 dependencies에는 넣지 않는다 — 운영 PC가 아닌 장비에 Qt를 깔지 않기 위해.
+# 운영 앱까지 설치: uv sync --all-packages
+[tool.uv.workspace]
+members = [
+    "apps/central",
+    "apps/operator",
+    "apps/node_agent",
+    "apps/show_agent",
+    "packages/contracts",
+    "packages/db",
+    "packages/studio",
+]
+
+[tool.uv.sources]
+a504-central = { workspace = true }
+a504-operator = { workspace = true }
+a504-node-agent = { workspace = true }
+a504-show-agent = { workspace = true }
+a504-contracts = { workspace = true }
+a504-db = { workspace = true }
+a504-studio = { workspace = true }
+interactive-controller = { path = "controller", editable = true }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]   # 센서 입력 fixture와 공용 테스트 helper
+testpaths = ["tests"]
+norecursedirs = ["archive", ".venv", ".git"]
+
+[tool.ruff]
+line-length = 120
+src = ["apps/*/src", "packages/*/src"]
+# imagegen은 라이선스와 함께 전달하는 외부 원문이다. 별도 구문·dry-run 검사로 실행 경로를 확인한다.
+extend-exclude = ["controller", "ue/runtime", "td/project", "archive", "docs/provenance/snapshots",
+                  ".agents/skills/imagegen/scripts/image_gen.py",
+                  ".agents/skills/imagegen/scripts/remove_chroma_key.py"]

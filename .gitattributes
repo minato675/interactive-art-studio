@@ -1,0 +1,4 @@
+*.sh text eol=lf
+Dockerfile text eol=lf
+**/head-director-prompt.md text eol=lf
+*.obj text eol=lf

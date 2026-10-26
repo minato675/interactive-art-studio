@@ -1,0 +1,74 @@
+{
+  "template_version": 1,
+  "layer_side": "front",
+  "far_hidden": true,
+  "label": "유체 배경",
+  "effect_x": 450,
+  "layers": [
+    "far",
+    "mid",
+    "near"
+  ],
+  "far_target": "LayerFar",
+  "canvas_source": true,
+  "release_binding": "FlowCanvas",
+  "palette_targets": [
+    {
+      "path": [
+        "Profiles",
+        "FluidField",
+        0,
+        "ContactColors"
+      ],
+      "count": 2
+    }
+  ],
+  "return_values": {
+    "instant": [
+      {
+        "path": [
+          "Profiles",
+          "FluidField",
+          0,
+          "Field",
+          "DyeHalfLifeSeconds"
+        ],
+        "value": 1.5
+      }
+    ],
+    "stay": [
+      {
+        "path": [
+          "Profiles",
+          "FluidField",
+          0,
+          "Field",
+          "DyeHalfLifeSeconds"
+        ],
+        "value": 20
+      }
+    ]
+  },
+  "influence_radius": {
+    "path": [
+      "Profiles",
+      "FluidField",
+      0,
+      "Field",
+      "InfluenceRadiusCm"
+    ],
+    "local": 120,
+    "wide": 320
+  },
+  "requires": {
+    "patterns": [
+      "FluidField"
+    ],
+    "objects": [
+      "Fluid_Canvas",
+      "Layer_Far",
+      "Layer_Mid",
+      "Layer_Near"
+    ]
+  }
+}

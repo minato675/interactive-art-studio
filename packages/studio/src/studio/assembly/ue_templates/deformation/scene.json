@@ -1,0 +1,68 @@
+{
+  "SchemaVersion": 1,
+  "Scene": [
+    {
+      "Name": "RuntimeDeformation",
+      "bMirrorHorizontal": true
+    }
+  ],
+  "Placements": [
+    {
+      "Name": "Background",
+      "ObjectId": "Deformation_Background",
+      "Location": "(X=0,Y=0,Z=100)",
+      "Rotation": "(Pitch=90,Yaw=0,Roll=0)",
+      "Scale": "(X=40,Y=25,Z=1)"
+    },
+    {
+      "Name": "Canvas",
+      "ObjectId": "Deformation_Canvas",
+      "Location": "(X=450,Y=0,Z=100)",
+      "Rotation": "(Pitch=0,Yaw=90,Roll=90)",
+      "Scale": "(X=24,Y=13.5,Z=1)"
+    }
+  ],
+  "Conditions": [
+    {
+      "Name": "Hands",
+      "SourceIds": [
+        "td_main/forest_hand",
+        "td_main/hand_tracking_2"
+      ],
+      "ContactSelection": "All",
+      "MaxContacts": 8,
+      "Region": "InputSurface",
+      "SampleId": "position_uv",
+      "CoordinateSpace": "mediapipe_image_uv"
+    }
+  ],
+  "Bindings": [
+    {
+      "Name": "DeformCanvas",
+      "PlacementId": "Canvas",
+      "PatternId": "SurfaceDeformation",
+      "ProfileId": "Water",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0,
+      "ReleaseSeconds": 0.5
+    }
+  ],
+  "Profiles": {
+    "SurfaceDeformation": [
+      {
+        "Name": "Water",
+        "Surface": {
+          "Mode": "Ripple",
+          "Columns": 65,
+          "Rows": 37,
+          "WaveSpeedCmPerSecond": 500,
+          "DampingPerSecond": 0.5,
+          "ReturnFrequencyHz": 0.25,
+          "InfluenceRadiusCm": 140,
+          "RippleImpulseCmPerSecond": 180,
+          "MaximumDisplacementCm": 40
+        }
+      }
+    ]
+  }
+}

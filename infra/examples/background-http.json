@@ -1,0 +1,9 @@
+{
+  "request_id": "replace-with-unique-background-http-id",
+  "kind": "background_generate",
+  "file_transport": "http",
+  "generation": {
+    "artwork_id": "artwork-A", "version": "v1", "catalog_version": "v1",
+    "prompt": "작품 배경을 생성하고 결과 폴더에 background.png로 저장합니다. 실제 지시로 교체하세요."
+  }
+}

@@ -1,0 +1,379 @@
+{
+  "SchemaVersion": 1,
+  "Scene": [
+    {
+      "Name": "RuntimeRippleLake",
+      "bMirrorHorizontal": true
+    }
+  ],
+  "Placements": [
+    {
+      "Name": "Background",
+      "ObjectId": "Paint_Background",
+      "Location": "(X=0,Y=0,Z=100)",
+      "Rotation": "(Pitch=90,Yaw=0,Roll=0)",
+      "Scale": "(X=40,Y=25,Z=1)"
+    },
+    {
+      "Name": "Canvas",
+      "ObjectId": "RippleLake_Canvas",
+      "Location": "(X=5,Y=0,Z=100)",
+      "Rotation": "(Pitch=0,Yaw=90,Roll=90)",
+      "Scale": "(X=30.73911093,Y=17.2907499,Z=1)"
+    }
+  ],
+  "Conditions": [
+    {
+      "Name": "Hands",
+      "SourceIds": [
+        "td_main/forest_hand",
+        "td_main/hand_tracking_2"
+      ],
+      "SampleId": "position_uv",
+      "CoordinateSpace": "mediapipe_image_uv",
+      "ContactSelection": "All",
+      "MaxContacts": 8,
+      "Region": "InputSurface",
+      "Type": "Presence"
+    }
+  ],
+  "Bindings": [
+    {
+      "Name": "Water",
+      "PlacementId": "Canvas",
+      "PatternId": "SurfaceDeformation",
+      "ProfileId": "Water",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0,
+      "ReleaseSeconds": 0.4
+    },
+    {
+      "Name": "SourceBlend",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "SourceBlend",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "RefractionStrength",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "RefractionStrength",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "HighlightStrength",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "HighlightStrength",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "MaskFromAlpha",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "MaskFromAlpha",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "FlowStrength",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "FlowStrength",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "Agitation",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "Agitation",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "RingStrength",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "RingStrength",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "FlowSpeed",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "FlowSpeed",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "FlowScale",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "FlowScale",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "FlowPerspective",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "FlowPerspective",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "UseFlowPhase",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "UseFlowPhase",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "WaterHorizon",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "WaterHorizon",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "WaterDepth",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "WaterDepth",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "WaterAspect",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "WaterAspect",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "FineFlowStrength",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "FineFlowStrength",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "FineFlowScale",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "FineFlowScale",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "FineFlowSpeedRatio",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "FineFlowSpeedRatio",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    },
+    {
+      "Name": "ReflectionStrength",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "ReflectionStrength",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 2.4
+    }
+  ],
+  "Profiles": {
+    "SurfaceDeformation": [
+      {
+        "Name": "Water",
+        "HeightTextureParameter": "WaveTexture",
+        "AmbientDropsPerSecond": 0,
+        "SceneEnergyDropsPerSecond": 0,
+        "DropSeed": 271,
+        "Surface": {
+          "Mode": "Ripple",
+          "Columns": 257,
+          "Rows": 145,
+          "WaveSpeedCmPerSecond": 600,
+          "DampingPerSecond": 0.5,
+          "ReturnFrequencyHz": 0.25,
+          "InfluenceRadiusCm": 60,
+          "RippleImpulseCmPerSecond": 350,
+          "MaximumDisplacementCm": 15,
+          "MaximumVelocityCmPerSecond": 400
+        },
+        "DropAreaMin": "(X=0.28,Y=0.66)",
+        "DropAreaMax": "(X=0.68,Y=0.96)"
+      }
+    ],
+    "MaterialScalar": [
+      {
+        "Name": "SourceBlend",
+        "ParameterName": "SourceBlend",
+        "RestValue": 1,
+        "ActiveValue": 1,
+        "ResponseSpeed": 2
+      },
+      {
+        "Name": "RefractionStrength",
+        "ParameterName": "RefractionStrength",
+        "RestValue": 0.3,
+        "ActiveValue": 0.6,
+        "ResponseSpeed": 2.5,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "HighlightStrength",
+        "ParameterName": "HighlightStrength",
+        "RestValue": 1,
+        "ActiveValue": 1.3,
+        "ResponseSpeed": 1.2,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "MaskFromAlpha",
+        "ParameterName": "MaskFromAlpha",
+        "RestValue": 1,
+        "ActiveValue": 1,
+        "ResponseSpeed": 2
+      },
+      {
+        "Name": "FlowStrength",
+        "ParameterName": "FlowStrength",
+        "RestValue": 7,
+        "ActiveValue": 21.0,
+        "ResponseSpeed": 2.5,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "Agitation",
+        "ParameterName": "Agitation",
+        "RestValue": 4,
+        "ActiveValue": 6,
+        "ResponseSpeed": 1.2
+      },
+      {
+        "Name": "RingStrength",
+        "ParameterName": "RingStrength",
+        "RestValue": 0.8,
+        "ActiveValue": 1,
+        "ResponseSpeed": 1.2
+      },
+      {
+        "Name": "FlowSpeed",
+        "ParameterName": "FlowPhase",
+        "RestValue": 0.09,
+        "ActiveValue": 0.11249999999999999,
+        "ResponseSpeed": 1.2,
+        "bUseSceneMotionEnergy": true,
+        "bIntegrateValue": true
+      },
+      {
+        "Name": "FlowScale",
+        "ParameterName": "FlowScale",
+        "RestValue": 3.0,
+        "ActiveValue": 3.0,
+        "ResponseSpeed": 1.2
+      },
+      {
+        "Name": "FlowPerspective",
+        "ParameterName": "FlowPerspective",
+        "RestValue": 0.6,
+        "ActiveValue": 0.6,
+        "ResponseSpeed": 1.2
+      },
+      {
+        "Name": "UseFlowPhase",
+        "ParameterName": "UseFlowPhase",
+        "RestValue": 1,
+        "ActiveValue": 1,
+        "ResponseSpeed": 1.2,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "WaterHorizon",
+        "ParameterName": "WaterHorizon",
+        "RestValue": 0.63,
+        "ActiveValue": 0.63,
+        "ResponseSpeed": 1.2,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "WaterDepth",
+        "ParameterName": "WaterDepth",
+        "RestValue": 0.37,
+        "ActiveValue": 0.37,
+        "ResponseSpeed": 1.2,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "WaterAspect",
+        "ParameterName": "WaterAspect",
+        "RestValue": 1.778,
+        "ActiveValue": 1.778,
+        "ResponseSpeed": 1.2,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "FineFlowStrength",
+        "ParameterName": "FineFlowStrength",
+        "RestValue": 0.2,
+        "ActiveValue": 0.44000000000000006,
+        "ResponseSpeed": 2.5,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "FineFlowScale",
+        "ParameterName": "FineFlowScale",
+        "RestValue": 2,
+        "ActiveValue": 2,
+        "ResponseSpeed": 1.2,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "FineFlowSpeedRatio",
+        "ParameterName": "FineFlowSpeedRatio",
+        "RestValue": 1.3,
+        "ActiveValue": 1.3,
+        "ResponseSpeed": 1.2,
+        "bUseSceneMotionEnergy": true
+      },
+      {
+        "Name": "ReflectionStrength",
+        "ParameterName": "ReflectionStrength",
+        "RestValue": 0.95,
+        "ActiveValue": 0.95,
+        "ResponseSpeed": 1.2,
+        "bUseSceneMotionEnergy": true
+      }
+    ]
+  }
+}

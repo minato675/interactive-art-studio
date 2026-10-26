@@ -1,0 +1,58 @@
+name: a504-docker-local
+
+services:
+  central:
+    build:
+      context: ../..
+      dockerfile: infra/local-dev/Dockerfile
+      target: runtime
+    ports:
+      - "127.0.0.1:${CENTRAL_PORT:-8001}:8000"
+    environment:
+      OPERATOR_TOKEN: "${OPERATOR_TOKEN:?Create infra/local-dev/.env and pass --env-file infra/local-dev/.env}"
+      STUDIO_DATA: /data
+      DATABASE_URL: sqlite:////data/studio.db
+      LLM_PROVIDER: none
+      LLM_FALLBACK: ""
+      RENDERER: both
+    volumes:
+      - runtime-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 30s
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import json, urllib.request; r = urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3); assert json.load(r)['ok'] is True"
+      interval: 10s
+      timeout: 5s
+      start_period: 15s
+      retries: 5
+
+  tests:
+    profiles: [test]
+    build:
+      context: ../..
+      dockerfile: infra/local-dev/Dockerfile
+      target: test
+    environment:
+      LLM_PROVIDER: none
+      LLM_FALLBACK: ""
+      DATABASE_URL: ""
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+volumes:
+  runtime-data:

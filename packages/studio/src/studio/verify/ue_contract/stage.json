@@ -1,0 +1,25 @@
+{
+  "CameraLocation": [
+    2200.0,
+    0.0,
+    100.0
+  ],
+  "CameraRotation": [
+    0.0,
+    180.0,
+    0.0
+  ],
+  "FieldOfView": 70.0,
+  "AspectRatio": 1.7777777910232544,
+  "SurfaceOrigin": [
+    300.0,
+    0.0,
+    100.0
+  ],
+  "SurfaceSize": [
+    2660.0,
+    1496.0
+  ],
+  "bMirrorHorizontal": true,
+  "bInvertVertical": false
+}

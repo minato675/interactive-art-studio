@@ -1,0 +1,15 @@
+[project]
+name = "a504-contracts"
+version = "0.1.0"
+description = "장비 사이에 주고받는 형식: 작품 요청 · 계획 · 응답 모델과 표현 방식 목록"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "contracts"

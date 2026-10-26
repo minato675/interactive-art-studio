@@ -1,0 +1,84 @@
+{
+  "template_version": 1,
+  "layer_side": "front",
+  "far_hidden": true,
+  "label": "물감 마블링",
+  "effect_x": 5,
+  "layers": [
+    "far",
+    "mid",
+    "near"
+  ],
+  "far_target": "LayerFar",
+  "canvas_source": true,
+  "release_binding": "Flow",
+  "palette_targets": [
+    {
+      "path": [
+        "Profiles",
+        "FluidField",
+        0,
+        "ContactColors"
+      ],
+      "count": 2
+    },
+    {
+      "path": [
+        "Profiles",
+        "FluidField",
+        0,
+        "IdleInkColors"
+      ],
+      "count": 3
+    }
+  ],
+  "return_values": {
+    "instant": [
+      {
+        "path": [
+          "Profiles",
+          "FluidField",
+          0,
+          "Field",
+          "DyeHalfLifeSeconds"
+        ],
+        "value": 3
+      }
+    ],
+    "stay": [
+      {
+        "path": [
+          "Profiles",
+          "FluidField",
+          0,
+          "Field",
+          "DyeHalfLifeSeconds"
+        ],
+        "value": 40
+      }
+    ]
+  },
+  "influence_radius": {
+    "path": [
+      "Profiles",
+      "FluidField",
+      0,
+      "Field",
+      "InfluenceRadiusCm"
+    ],
+    "local": 75,
+    "wide": 200
+  },
+  "requires": {
+    "patterns": [
+      "FluidField",
+      "MaterialScalar"
+    ],
+    "objects": [
+      "PigmentFlow_Canvas",
+      "Layer_Far",
+      "Layer_Mid",
+      "Layer_Near"
+    ]
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "template_version": 1,
+  "layer_side": "behind",
+  "far_hidden": false,
+  "label": "GPU 입자 장",
+  "effect_x": 300,
+  "layers": [
+    "far",
+    "mid",
+    "near"
+  ],
+  "far_target": "LayerFar",
+  "release_binding": "Flow",
+  "return_values": {
+    "instant": [
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "RecoverySeconds"
+        ],
+        "value": 2.2
+      }
+    ],
+    "stay": [
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "RecoverySeconds"
+        ],
+        "value": 20
+      }
+    ]
+  },
+  "influence_radius": {
+    "path": [
+      "Profiles",
+      "GpuFlow",
+      0,
+      "ReactionRadiusCm"
+    ],
+    "local": 300,
+    "wide": 900
+  },
+  "density": {
+    "path": [
+      "Profiles",
+      "GpuFlow",
+      0,
+      "Count"
+    ],
+    "low": 4096,
+    "high": 65536
+  },
+  "requires": {
+    "patterns": [
+      "GpuFlow"
+    ],
+    "objects": [
+      "Layer_Far",
+      "Layer_Mid",
+      "Layer_Near"
+    ]
+  },
+  "reaction_values": {
+    "push": [
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "RepulsionSpeed"
+        ],
+        "value": 900,
+        "unverified": "GPU 입자 push의 밀기 · 소용돌이 · 손 속도 값(가정값, 화면 확인 전)"
+      },
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "SwirlSpeed"
+        ],
+        "value": 0
+      },
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "HandVelocityGain"
+        ],
+        "value": 0.7
+      }
+    ],
+    "swirl": [
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "RepulsionSpeed"
+        ],
+        "value": 0,
+        "unverified": "GPU 입자 swirl의 밀기 · 소용돌이 · 손 속도 값(가정값, 화면 확인 전)"
+      },
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "SwirlSpeed"
+        ],
+        "value": 900
+      },
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "HandVelocityGain"
+        ],
+        "value": 0.4
+      }
+    ],
+    "scatter": [
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "RepulsionSpeed"
+        ],
+        "value": 1600,
+        "unverified": "GPU 입자 scatter의 밀기 · 소용돌이 · 손 속도 값(가정값, 화면 확인 전)"
+      },
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "SwirlSpeed"
+        ],
+        "value": 0
+      },
+      {
+        "path": [
+          "Profiles",
+          "GpuFlow",
+          0,
+          "HandVelocityGain"
+        ],
+        "value": 1.5
+      }
+    ]
+  }
+}

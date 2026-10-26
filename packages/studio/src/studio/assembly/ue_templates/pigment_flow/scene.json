@@ -1,0 +1,172 @@
+{
+  "SchemaVersion": 1,
+  "Scene": [
+    {
+      "Name": "RuntimePigmentFlow",
+      "bMirrorHorizontal": true
+    }
+  ],
+  "Placements": [
+    {
+      "Name": "Background",
+      "ObjectId": "Paint_Background",
+      "Location": "(X=0,Y=0,Z=100)",
+      "Rotation": "(Pitch=90,Yaw=0,Roll=0)",
+      "Scale": "(X=40,Y=25,Z=1)"
+    },
+    {
+      "Name": "Canvas",
+      "ObjectId": "PigmentFlow_Canvas",
+      "Location": "(X=5,Y=0,Z=100)",
+      "Rotation": "(Pitch=0,Yaw=90,Roll=90)",
+      "Scale": "(X=30.73911093,Y=17.2907499,Z=1)"
+    }
+  ],
+  "Conditions": [
+    {
+      "Name": "Hands",
+      "SourceIds": [
+        "td_main/forest_hand",
+        "td_main/hand_tracking_2"
+      ],
+      "SampleId": "position_uv",
+      "CoordinateSpace": "mediapipe_image_uv",
+      "ContactSelection": "All",
+      "MaxContacts": 8,
+      "Region": "InputSurface",
+      "Type": "Presence"
+    }
+  ],
+  "Bindings": [
+    {
+      "Name": "Flow",
+      "PlacementId": "Canvas",
+      "PatternId": "FluidField",
+      "ProfileId": "Pigment",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0,
+      "ReleaseSeconds": 0.5
+    },
+    {
+      "Name": "IdlePresence",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "IdlePresence",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 0.5
+    },
+    {
+      "Name": "DensityExposure",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "DensityExposure",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 0.5
+    },
+    {
+      "Name": "FilamentDensity",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "FilamentDensity",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 0.5
+    },
+    {
+      "Name": "FineDetail",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "FineDetail",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 0.5
+    },
+    {
+      "Name": "BoundarySharpness",
+      "PlacementId": "Canvas",
+      "PatternId": "MaterialScalar",
+      "ProfileId": "BoundarySharpness",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0.3,
+      "ReleaseSeconds": 0.5
+    }
+  ],
+  "Profiles": {
+    "FluidField": [
+      {
+        "Name": "Pigment",
+        "ContactColors": [
+          "(R=0.58,G=0.24,B=0.045,A=1)",
+          "(R=0.018,G=0.32,B=0.38,A=1)"
+        ],
+        "Field": {
+          "Columns": 256,
+          "Rows": 144,
+          "SolverIterations": 24,
+          "InfluenceRadiusCm": 75,
+          "MotionForcePerSecond": 20,
+          "MaximumVelocityCmPerSecond": 650,
+          "VelocityDampingPerSecond": 0.35,
+          "ReleaseDampingPerSecond": 0.65,
+          "DyeHalfLifeSeconds": 14,
+          "DyePerSecond": 1.1,
+          "DyeDiffusionCmSquaredPerSecond": 0,
+          "ViscosityCmSquaredPerSecond": 0,
+          "AmbientAccelerationCmPerSecondSquared": 65,
+          "AmbientScaleCm": 460,
+          "AmbientPeriodSeconds": 40
+        },
+        "IdleInkDropsPerSecond": 0.65,
+        "IdleInkSeconds": 3.5,
+        "IdleInkDriftCmPerSecond": 65,
+        "IdleInkColors": [
+          "(R=0.018,G=0.32,B=0.38,A=1)",
+          "(R=0.58,G=0.24,B=0.045,A=1)",
+          "(R=0.035,G=0.075,B=0.24,A=1)"
+        ],
+        "IdleInkAreaMin": "(X=0.08,Y=0.1)",
+        "IdleInkAreaMax": "(X=0.92,Y=0.9)",
+        "IdleInkSeed": 29
+      }
+    ],
+    "MaterialScalar": [
+      {
+        "Name": "IdlePresence",
+        "ParameterName": "IdlePresence",
+        "RestValue": 0.0,
+        "ActiveValue": 0.0,
+        "ResponseSpeed": 2
+      },
+      {
+        "Name": "DensityExposure",
+        "ParameterName": "DensityExposure",
+        "RestValue": 1.6,
+        "ActiveValue": 1.6,
+        "ResponseSpeed": 2
+      },
+      {
+        "Name": "FilamentDensity",
+        "ParameterName": "FilamentDensity",
+        "RestValue": 1.0,
+        "ActiveValue": 1.0,
+        "ResponseSpeed": 2
+      },
+      {
+        "Name": "FineDetail",
+        "ParameterName": "FineDetail",
+        "RestValue": 0.2,
+        "ActiveValue": 0.2,
+        "ResponseSpeed": 2
+      },
+      {
+        "Name": "BoundarySharpness",
+        "ParameterName": "BoundarySharpness",
+        "RestValue": 0,
+        "ActiveValue": 0,
+        "ResponseSpeed": 2
+      }
+    ]
+  }
+}

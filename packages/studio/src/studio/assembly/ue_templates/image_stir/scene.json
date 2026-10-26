@@ -1,0 +1,80 @@
+{
+  "SchemaVersion": 1,
+  "Scene": [
+    {
+      "Name": "RuntimeFlowStir",
+      "bMirrorHorizontal": true
+    }
+  ],
+  "Placements": [
+    {
+      "Name": "Background",
+      "ObjectId": "Paint_Background",
+      "Location": "(X=0,Y=0,Z=100)",
+      "Rotation": "(Pitch=90,Yaw=0,Roll=0)",
+      "Scale": "(X=40,Y=25,Z=1)"
+    },
+    {
+      "Name": "Canvas",
+      "ObjectId": "FlowStir_Canvas",
+      "Location": "(X=5,Y=0,Z=100)",
+      "Rotation": "(Pitch=0,Yaw=-90,Roll=90)",
+      "Scale": "(X=30.73911093,Y=17.2907499,Z=1)"
+    }
+  ],
+  "Conditions": [
+    {
+      "Name": "Hands",
+      "SourceIds": [
+        "td_main/forest_hand",
+        "td_main/hand_tracking_2"
+      ],
+      "SampleId": "position_uv",
+      "CoordinateSpace": "mediapipe_image_uv",
+      "ContactSelection": "All",
+      "MaxContacts": 8,
+      "Region": "InputSurface",
+      "Type": "Presence"
+    }
+  ],
+  "Bindings": [
+    {
+      "Name": "Stir",
+      "PlacementId": "Canvas",
+      "PatternId": "ImageFlow",
+      "ProfileId": "Stir",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0,
+      "ReleaseSeconds": 0.4
+    }
+  ],
+  "Profiles": {
+    "ImageFlow": [
+      {
+        "Name": "Stir",
+        "SourceType": "StillImage",
+        "ImageWidth": 1792,
+        "ImageHeight": 1008,
+        "MixingPerSecond": 0.6,
+        "MixingRadiusPixels": 1.2,
+        "RestoreHalfLifeSeconds": 3,
+        "Field": {
+          "Columns": 112,
+          "Rows": 63,
+          "SolverIterations": 24,
+          "InfluenceRadiusCm": 280,
+          "MotionForcePerSecond": 12,
+          "MaximumAccelerationCmPerSecondSquared": 6500,
+          "MaximumVelocityCmPerSecond": 780,
+          "ViscosityCmSquaredPerSecond": 20,
+          "VelocityDampingPerSecond": 0.8,
+          "ReleaseDampingPerSecond": 2.2,
+          "AmbientAccelerationCmPerSecondSquared": 0,
+          "AmbientScaleCm": 1100,
+          "AmbientPeriodSeconds": 45
+        },
+        "SceneEnergyAmbientScale": 2
+      }
+    ]
+  }
+}

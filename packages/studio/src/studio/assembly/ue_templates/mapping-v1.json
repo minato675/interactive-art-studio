@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "notes": "작품 명세 → 템플릿. 조건은 interactions[0].reaction · content.medium. dedicated는 위에서부터 처음 맞는 규칙을 쓴다. sprite_only 반응은 전용 템플릿이 없어 매질로 템플릿을 고르고 대체 기록을 남긴다(반응 자체는 객체 행동으로 표현). 그 밖의 반응은 보류한다.",
+  "dedicated": [
+    {
+      "template": "fluid",
+      "reaction": [
+        "stir"
+      ],
+      "medium": [
+        "fluid"
+      ]
+    },
+    {
+      "template": "image_stir",
+      "reaction": [
+        "stir"
+      ]
+    },
+    {
+      "template": "paint",
+      "reaction": [
+        "draw"
+      ]
+    },
+    {
+      "template": "deformation",
+      "reaction": [
+        "ripple",
+        "press"
+      ]
+    },
+    {
+      "template": "gpu_particles",
+      "reaction": [
+        "push",
+        "swirl",
+        "scatter"
+      ]
+    }
+  ],
+  "sprite_only": [
+    "follow",
+    "glow"
+  ],
+  "by_medium": {
+    "fluid": "fluid",
+    "stroke": "paint",
+    "surface": "deformation",
+    "particle": "gpu_particles",
+    "light": "gpu_particles"
+  },
+  "reaction_modes": {
+    "default": [
+      "while"
+    ]
+  },
+  "release_seconds": {
+    "instant": 0.3,
+    "fade": 1.5,
+    "stay": 4.0
+  },
+  "coordinate_inputs": [
+    "appear",
+    "move"
+  ],
+  "look": "neutral"
+}

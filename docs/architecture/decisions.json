@@ -1,0 +1,97 @@
+{
+  "confirmed": {
+    "central": "Python / FastAPI",
+    "queue": "RabbitMQ + Celery",
+    "database": "PostgreSQL",
+    "node_os": "Windows",
+    "ue": "5.8.3 (user specified)",
+    "agents": "Python Agent + FastAPI",
+    "production": "Initially 2 physically separate UE production PCs; scalable to N identical nodes; one concurrent UE and assembly job per node",
+    "generation": "1 physically separate generation PC; also hosts the shared asset disk",
+    "asset_storage": "Dedicated data folder on the generation PC disk, shared over field LAN SMB; no additional storage PC or NAS",
+    "show": "1 node; one UE Runtime",
+    "operations_ui": "PySide6 + Qt Widgets desktop application on operator PC",
+    "central_deployment": "SSAFY-provided AWS EC2",
+    "observability": "JSON logs + Alloy + Loki + Grafana",
+    "operations_connection": "Operator PC application connects to central FastAPI on SSAFY AWS EC2",
+    "operations_ui_license": "LGPLv3 for eligible PySide6 / Qt Widgets components; proprietary application source retained",
+    "project_phase": "Company-requested prototype; future commercial distribution is a separate stage",
+    "local_database_policy": "No SQLite in the initial implementation. Consider it later only when local draft or cache requirements justify it; PostgreSQL remains authoritative."
+  },
+  "assembly": "Data-driven scene.json with shared prebuilt runtime and catalog; existing compatible skeletal .pak pathway only as optional exception",
+  "pending": [
+    "asset storage path / accounts / permissions / capacity / bandwidth / retention / backup validation",
+    "external AI providers",
+    "EC2 instance size / OS / packaging",
+    "remote Prepare/Commit adapter implementation",
+    "PySide6 / Qt versions, packaging, corresponding source and notices, compatible library replacement verification"
+  ],
+  "operations_lifecycle": "Closing the operations UI does not stop central services, Node Agents or Show Agent.",
+  "primary_design_document": "./distributed-system-design.md",
+  "deployment_topology_decision": {
+    "date": "2026-10-21",
+    "source": "Explicit user decision: 생성 PC 1대·UE 제작 PC 2대·시연 PC 1대; 공유 저장소는 생성 PC의 디스크; UE 제작 N대 확장 유지",
+    "initial_generation_pc_count": 1,
+    "initial_ue_production_pc_count": 2,
+    "initial_show_pc_count": 1,
+    "initial_field_pc_count": 4,
+    "additional_storage_pc_count": 0,
+    "storage_host": "generation PC",
+    "storage_method": "SMB shared dedicated data folder on the generation PC disk",
+    "production_scaling": "N identical production nodes using one common assembly work queue",
+    "concurrent_ue_per_production_pc": 1,
+    "concurrent_ue_per_show_pc": 1,
+    "initial_assembly_concurrency_limit": 2,
+    "scaled_field_pc_count": "N + 2, keeping one generation PC and one show PC",
+    "central_location": "SSAFY AWS EC2; temporary laptop before EC2 migration",
+    "separate_operator_pc_counted": false,
+    "physical_connections_verified": false
+  },
+  "database_decision": {
+    "date": "2026-10-19",
+    "source": "Explicit user decision: PostgreSQL로 진행하고 SQLite는 필요할 때 추가",
+    "authoritative_database": "PostgreSQL",
+    "sqlite_initially_enabled": false,
+    "sqlite_future_scope": "Optional local drafts, query caches or local operational records after a demonstrated need; not a second authoritative database"
+  },
+  "license_decision": {
+    "date": "2026-10-19",
+    "source": "Explicit user decision: LGPL로 진행할게",
+    "scope": "PySide6 + Qt Widgets use under LGPLv3; not a license change for the entire application",
+    "packaging_compliance_verified": false,
+    "formal_company_policy_verified": false,
+    "checklist": "./pyside6-distribution-checklist.md",
+    "repository_gpl_family_restriction_found": true,
+    "repository_policy_exception_confirmed": false,
+    "repository_policy_sources": [
+      "../../AGENTS.md",
+      "../THIRD_PARTY.md"
+    ]
+  },
+  "edit_mode_decision": {
+    "date": "2026-10-20",
+    "source": "Explicit user decision (S15P31A504-165): 전체 칸을 편집할 수 있게 한다",
+    "scope": "Edit production lets the operator change every non-blocked field of the artwork spec (contracts.spec), not only the 7 plan fields",
+    "blocked_fields_editable": false,
+    "required_fields_may_be_none": false,
+    "current_implementation": "S15P31A504-161/162 edit 7 CreateRequest-based fields",
+    "implementation_issue": "S15P31A504-168"
+  },
+  "document_status": "Agreed target architecture; not an implemented or performance-validated system",
+  "gitlab_baseline": {
+    "repository": "s15-final/S15P31A504",
+    "branch": "develop",
+    "commit": "ccd14e9e08cfe5088fef226f5bbb574639b6136a"
+  },
+  "jira": {
+    "story": "S15P31A504-56",
+    "task": "S15P31A504-133"
+  },
+  "diagram": {
+    "file": "./assets/ranel-ai-architecture.drawio",
+    "page_count": 5,
+    "preserved_page_count": 4,
+    "current_page": "분산형 설계 · 도형 중심",
+    "preview": "./assets/architecture-overview.png"
+  }
+}

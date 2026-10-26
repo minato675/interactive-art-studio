@@ -1,0 +1,695 @@
+{
+  "version": 1,
+  "mapping": {
+    "version": 1,
+    "notes": "작품 명세 → 템플릿. 조건은 interactions[0].reaction · content.medium. dedicated는 위에서부터 처음 맞는 규칙을 쓴다. sprite_only 반응은 전용 템플릿이 없어 매질로 템플릿을 고르고 대체 기록을 남긴다(반응 자체는 객체 행동으로 표현). 그 밖의 반응은 보류한다.",
+    "dedicated": [
+      {
+        "template": "fluid",
+        "reaction": [
+          "stir"
+        ],
+        "medium": [
+          "fluid"
+        ]
+      },
+      {
+        "template": "image_stir",
+        "reaction": [
+          "stir"
+        ]
+      },
+      {
+        "template": "paint",
+        "reaction": [
+          "draw"
+        ]
+      },
+      {
+        "template": "deformation",
+        "reaction": [
+          "ripple",
+          "press"
+        ]
+      },
+      {
+        "template": "gpu_particles",
+        "reaction": [
+          "push",
+          "swirl",
+          "scatter"
+        ]
+      }
+    ],
+    "sprite_only": [
+      "follow",
+      "glow"
+    ],
+    "by_medium": {
+      "fluid": "fluid",
+      "stroke": "paint",
+      "surface": "deformation",
+      "particle": "gpu_particles",
+      "light": "gpu_particles"
+    },
+    "reaction_modes": {
+      "default": [
+        "while"
+      ]
+    },
+    "release_seconds": {
+      "instant": 0.3,
+      "fade": 1.5,
+      "stay": 4.0
+    },
+    "coordinate_inputs": [
+      "appear",
+      "move"
+    ],
+    "look": "neutral"
+  },
+  "templates": [
+    {
+      "template": "gpu_particles",
+      "fingerprint": "70f9a30ab92a4dd05da115eba90ae15aace552d59ffb385c1f2731de1425f482",
+      "files": {
+        "ue_assemble.py": "48b6d3d72e3d2199effeb72ca6e3f9243953bf481fc578ea8bcabc3a91729c46",
+        "assets.py": "306cd0547f0946ce30eed8f5212a634b05079c3d237775bd760310eacefcc3d7",
+        "spec.py": "61a6cc5819c92dd24ee8a83b62da1b0c455ae87ca589b535a21169027e5a4bd1",
+        "mapping-v1.json": "13451b004c54bbc002dc28f3c42312c1f3ebdc92152b3d538f59882aa3858feb",
+        "looks/neutral.json": "53adcf7dad8295ee045d83df9461023483a09a3b89e4961b2ed15c0cf6d4c688",
+        "ue_contract.py": "602dcf21156cfe0ae9feaead531e0fbd2d1c3c0de0563673085bbbcfa99d4fed",
+        "ue_contract/runtime-integration.json": "6761fb9a3595bcf5e5def322d2e419a0a9165593ffccd0d32bffa8e74993033e",
+        "ue_contract/runtime-pin.json": "79dd403c64624b4ad7ec711936bd6ea4351f5a391a0a7331b318cc23bcbeec0c",
+        "ue_contract/scene-structs.json": "51569bdd78662284fabf38ce66ad81d1e9056aa8d8ee472c04763aaaf22ba65a",
+        "ue_contract/stage.json": "95614c6ccc9ff00495a2ec4d2302df30fde4236ce674cb1e30bbfd423df1240c",
+        "scene.json": "0e51f0872b9f1dbbc9cd4131a18399892729d362cdab8684d32b6a346e40b810",
+        "slots.json": "6cca0e3a6123109b676349d095b0479b97567096fe55cc47f32d3d98fffb4258"
+      },
+      "slots": {
+        "template_version": 1,
+        "layer_side": "behind",
+        "far_hidden": false,
+        "label": "GPU 입자 장",
+        "effect_x": 300,
+        "layers": [
+          "far",
+          "mid",
+          "near"
+        ],
+        "far_target": "LayerFar",
+        "release_binding": "Flow",
+        "return_values": {
+          "instant": [
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "RecoverySeconds"
+              ],
+              "value": 2.2
+            }
+          ],
+          "stay": [
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "RecoverySeconds"
+              ],
+              "value": 20
+            }
+          ]
+        },
+        "influence_radius": {
+          "path": [
+            "Profiles",
+            "GpuFlow",
+            0,
+            "ReactionRadiusCm"
+          ],
+          "local": 300,
+          "wide": 900
+        },
+        "density": {
+          "path": [
+            "Profiles",
+            "GpuFlow",
+            0,
+            "Count"
+          ],
+          "low": 4096,
+          "high": 65536
+        },
+        "requires": {
+          "patterns": [
+            "GpuFlow"
+          ],
+          "objects": [
+            "Layer_Far",
+            "Layer_Mid",
+            "Layer_Near"
+          ]
+        },
+        "reaction_values": {
+          "push": [
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "RepulsionSpeed"
+              ],
+              "value": 900,
+              "unverified": "GPU 입자 push의 밀기 · 소용돌이 · 손 속도 값(가정값, 화면 확인 전)"
+            },
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "SwirlSpeed"
+              ],
+              "value": 0
+            },
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "HandVelocityGain"
+              ],
+              "value": 0.7
+            }
+          ],
+          "swirl": [
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "RepulsionSpeed"
+              ],
+              "value": 0,
+              "unverified": "GPU 입자 swirl의 밀기 · 소용돌이 · 손 속도 값(가정값, 화면 확인 전)"
+            },
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "SwirlSpeed"
+              ],
+              "value": 900
+            },
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "HandVelocityGain"
+              ],
+              "value": 0.4
+            }
+          ],
+          "scatter": [
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "RepulsionSpeed"
+              ],
+              "value": 1600,
+              "unverified": "GPU 입자 scatter의 밀기 · 소용돌이 · 손 속도 값(가정값, 화면 확인 전)"
+            },
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "SwirlSpeed"
+              ],
+              "value": 0
+            },
+            {
+              "path": [
+                "Profiles",
+                "GpuFlow",
+                0,
+                "HandVelocityGain"
+              ],
+              "value": 1.5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "template": "image_stir",
+      "fingerprint": "4d88da9e1a6a248f38f28aab1c3b64945e8c1a185b54beebed2c602f115cb8fc",
+      "files": {
+        "ue_assemble.py": "48b6d3d72e3d2199effeb72ca6e3f9243953bf481fc578ea8bcabc3a91729c46",
+        "assets.py": "306cd0547f0946ce30eed8f5212a634b05079c3d237775bd760310eacefcc3d7",
+        "spec.py": "61a6cc5819c92dd24ee8a83b62da1b0c455ae87ca589b535a21169027e5a4bd1",
+        "mapping-v1.json": "13451b004c54bbc002dc28f3c42312c1f3ebdc92152b3d538f59882aa3858feb",
+        "looks/neutral.json": "53adcf7dad8295ee045d83df9461023483a09a3b89e4961b2ed15c0cf6d4c688",
+        "ue_contract.py": "602dcf21156cfe0ae9feaead531e0fbd2d1c3c0de0563673085bbbcfa99d4fed",
+        "ue_contract/runtime-integration.json": "6761fb9a3595bcf5e5def322d2e419a0a9165593ffccd0d32bffa8e74993033e",
+        "ue_contract/runtime-pin.json": "79dd403c64624b4ad7ec711936bd6ea4351f5a391a0a7331b318cc23bcbeec0c",
+        "ue_contract/scene-structs.json": "51569bdd78662284fabf38ce66ad81d1e9056aa8d8ee472c04763aaaf22ba65a",
+        "ue_contract/stage.json": "95614c6ccc9ff00495a2ec4d2302df30fde4236ce674cb1e30bbfd423df1240c",
+        "scene.json": "f9800416f6bb1dacc20793ccb4aefd2d668a34bf7bc7f82804c8464fc908bab5",
+        "slots.json": "af7acbc908ee654b7c17823e561246824b59c78f974d4f0d4ba0f6c5441f5f1c"
+      },
+      "slots": {
+        "template_version": 1,
+        "layer_side": "behind",
+        "far_hidden": false,
+        "label": "그림 휘젓기",
+        "effect_x": 5,
+        "layers": [
+          "far"
+        ],
+        "far_target": "Canvas",
+        "release_binding": "Stir",
+        "return_values": {
+          "instant": [
+            {
+              "path": [
+                "Profiles",
+                "ImageFlow",
+                0,
+                "RestoreHalfLifeSeconds"
+              ],
+              "value": 1.6
+            },
+            {
+              "path": [
+                "Profiles",
+                "ImageFlow",
+                0,
+                "Field",
+                "ReleaseDampingPerSecond"
+              ],
+              "value": 2.2
+            }
+          ],
+          "stay": [
+            {
+              "path": [
+                "Profiles",
+                "ImageFlow",
+                0,
+                "RestoreHalfLifeSeconds"
+              ],
+              "value": 60
+            }
+          ]
+        },
+        "influence_radius": {
+          "path": [
+            "Profiles",
+            "ImageFlow",
+            0,
+            "Field",
+            "InfluenceRadiusCm"
+          ],
+          "local": 200,
+          "wide": 500
+        },
+        "requires": {
+          "patterns": [
+            "ImageFlow"
+          ],
+          "objects": [
+            "FlowStir_Canvas"
+          ]
+        }
+      }
+    },
+    {
+      "template": "fluid",
+      "fingerprint": "e057ac603fe90d53f433a6902b43eafbf8377a81e2018bc9c8521aaa000d5bae",
+      "files": {
+        "ue_assemble.py": "48b6d3d72e3d2199effeb72ca6e3f9243953bf481fc578ea8bcabc3a91729c46",
+        "assets.py": "306cd0547f0946ce30eed8f5212a634b05079c3d237775bd760310eacefcc3d7",
+        "spec.py": "61a6cc5819c92dd24ee8a83b62da1b0c455ae87ca589b535a21169027e5a4bd1",
+        "mapping-v1.json": "13451b004c54bbc002dc28f3c42312c1f3ebdc92152b3d538f59882aa3858feb",
+        "looks/neutral.json": "53adcf7dad8295ee045d83df9461023483a09a3b89e4961b2ed15c0cf6d4c688",
+        "ue_contract.py": "602dcf21156cfe0ae9feaead531e0fbd2d1c3c0de0563673085bbbcfa99d4fed",
+        "ue_contract/runtime-integration.json": "6761fb9a3595bcf5e5def322d2e419a0a9165593ffccd0d32bffa8e74993033e",
+        "ue_contract/runtime-pin.json": "79dd403c64624b4ad7ec711936bd6ea4351f5a391a0a7331b318cc23bcbeec0c",
+        "ue_contract/scene-structs.json": "51569bdd78662284fabf38ce66ad81d1e9056aa8d8ee472c04763aaaf22ba65a",
+        "ue_contract/stage.json": "95614c6ccc9ff00495a2ec4d2302df30fde4236ce674cb1e30bbfd423df1240c",
+        "scene.json": "c551222a2ad179a0aae6821f9e356096156f2e6ceabfb25601a13d362b82d56d",
+        "slots.json": "9c6d29ebf257dce2c46b4247064814d4f87e2bb4f34687a847e01c729b7bfa60"
+      },
+      "slots": {
+        "template_version": 1,
+        "layer_side": "front",
+        "far_hidden": true,
+        "label": "유체 배경",
+        "effect_x": 450,
+        "layers": [
+          "far",
+          "mid",
+          "near"
+        ],
+        "far_target": "LayerFar",
+        "canvas_source": true,
+        "release_binding": "FlowCanvas",
+        "palette_targets": [
+          {
+            "path": [
+              "Profiles",
+              "FluidField",
+              0,
+              "ContactColors"
+            ],
+            "count": 2
+          }
+        ],
+        "return_values": {
+          "instant": [
+            {
+              "path": [
+                "Profiles",
+                "FluidField",
+                0,
+                "Field",
+                "DyeHalfLifeSeconds"
+              ],
+              "value": 1.5
+            }
+          ],
+          "stay": [
+            {
+              "path": [
+                "Profiles",
+                "FluidField",
+                0,
+                "Field",
+                "DyeHalfLifeSeconds"
+              ],
+              "value": 20
+            }
+          ]
+        },
+        "influence_radius": {
+          "path": [
+            "Profiles",
+            "FluidField",
+            0,
+            "Field",
+            "InfluenceRadiusCm"
+          ],
+          "local": 120,
+          "wide": 320
+        },
+        "requires": {
+          "patterns": [
+            "FluidField"
+          ],
+          "objects": [
+            "Fluid_Canvas",
+            "Layer_Far",
+            "Layer_Mid",
+            "Layer_Near"
+          ]
+        }
+      }
+    },
+    {
+      "template": "paint",
+      "fingerprint": "edcbc48e4f3c2e233b35d581bab2e6c5ed7cf0c3fe6b3e79ef31de585e31d3d2",
+      "files": {
+        "ue_assemble.py": "48b6d3d72e3d2199effeb72ca6e3f9243953bf481fc578ea8bcabc3a91729c46",
+        "assets.py": "306cd0547f0946ce30eed8f5212a634b05079c3d237775bd760310eacefcc3d7",
+        "spec.py": "61a6cc5819c92dd24ee8a83b62da1b0c455ae87ca589b535a21169027e5a4bd1",
+        "mapping-v1.json": "13451b004c54bbc002dc28f3c42312c1f3ebdc92152b3d538f59882aa3858feb",
+        "looks/neutral.json": "53adcf7dad8295ee045d83df9461023483a09a3b89e4961b2ed15c0cf6d4c688",
+        "ue_contract.py": "602dcf21156cfe0ae9feaead531e0fbd2d1c3c0de0563673085bbbcfa99d4fed",
+        "ue_contract/runtime-integration.json": "6761fb9a3595bcf5e5def322d2e419a0a9165593ffccd0d32bffa8e74993033e",
+        "ue_contract/runtime-pin.json": "79dd403c64624b4ad7ec711936bd6ea4351f5a391a0a7331b318cc23bcbeec0c",
+        "ue_contract/scene-structs.json": "51569bdd78662284fabf38ce66ad81d1e9056aa8d8ee472c04763aaaf22ba65a",
+        "ue_contract/stage.json": "95614c6ccc9ff00495a2ec4d2302df30fde4236ce674cb1e30bbfd423df1240c",
+        "scene.json": "d4ababa837e9e6aeff16b7cd4b62417e4340f2fa24cee47e83005002cbeb6ba7",
+        "slots.json": "11c91896dbc925d4be00888da840b180b46cde18679dfbe4fdd616703c7c45c8"
+      },
+      "slots": {
+        "template_version": 1,
+        "layer_side": "front",
+        "far_hidden": true,
+        "label": "그리기",
+        "effect_x": 450,
+        "layers": [
+          "far",
+          "mid",
+          "near"
+        ],
+        "far_target": "LayerFar",
+        "canvas_source": true,
+        "release_binding": "PaintCanvas",
+        "palette_targets": [
+          {
+            "path": [
+              "Profiles",
+              "SurfacePaint",
+              0,
+              "StrokeColors"
+            ],
+            "count": 2
+          }
+        ],
+        "return_values": {
+          "instant": [
+            {
+              "path": [
+                "Profiles",
+                "SurfacePaint",
+                0,
+                "FadeHalfLifeSeconds"
+              ],
+              "value": 2
+            }
+          ],
+          "stay": [
+            {
+              "path": [
+                "Profiles",
+                "SurfacePaint",
+                0,
+                "FadeHalfLifeSeconds"
+              ],
+              "value": 60
+            }
+          ]
+        },
+        "requires": {
+          "patterns": [
+            "SurfacePaint"
+          ],
+          "objects": [
+            "Paint_Canvas",
+            "Layer_Far",
+            "Layer_Mid",
+            "Layer_Near"
+          ]
+        }
+      }
+    },
+    {
+      "template": "deformation",
+      "fingerprint": "31d8345ec088ae86f9362d79dc042f9d175a825cab83b72f87b059713da44d68",
+      "files": {
+        "ue_assemble.py": "48b6d3d72e3d2199effeb72ca6e3f9243953bf481fc578ea8bcabc3a91729c46",
+        "assets.py": "306cd0547f0946ce30eed8f5212a634b05079c3d237775bd760310eacefcc3d7",
+        "spec.py": "61a6cc5819c92dd24ee8a83b62da1b0c455ae87ca589b535a21169027e5a4bd1",
+        "mapping-v1.json": "13451b004c54bbc002dc28f3c42312c1f3ebdc92152b3d538f59882aa3858feb",
+        "looks/neutral.json": "53adcf7dad8295ee045d83df9461023483a09a3b89e4961b2ed15c0cf6d4c688",
+        "ue_contract.py": "602dcf21156cfe0ae9feaead531e0fbd2d1c3c0de0563673085bbbcfa99d4fed",
+        "ue_contract/runtime-integration.json": "6761fb9a3595bcf5e5def322d2e419a0a9165593ffccd0d32bffa8e74993033e",
+        "ue_contract/runtime-pin.json": "79dd403c64624b4ad7ec711936bd6ea4351f5a391a0a7331b318cc23bcbeec0c",
+        "ue_contract/scene-structs.json": "51569bdd78662284fabf38ce66ad81d1e9056aa8d8ee472c04763aaaf22ba65a",
+        "ue_contract/stage.json": "95614c6ccc9ff00495a2ec4d2302df30fde4236ce674cb1e30bbfd423df1240c",
+        "scene.json": "2556d77e8d6febaf6171bdff6556c6c960b574bb9325d2789fcc2f6a83c578ac",
+        "slots.json": "5ad75bf91fb4fedde76495e87c2d78f779fb5ad9aaec73f96387d2c6c737c883"
+      },
+      "slots": {
+        "template_version": 1,
+        "layer_side": "front",
+        "far_hidden": true,
+        "label": "표면 변형",
+        "effect_x": 450,
+        "layers": [
+          "far",
+          "mid",
+          "near"
+        ],
+        "far_target": "LayerFar",
+        "canvas_source": true,
+        "release_binding": "DeformCanvas",
+        "return_values": {
+          "instant": [
+            {
+              "path": [
+                "Profiles",
+                "SurfaceDeformation",
+                0,
+                "Surface",
+                "DampingPerSecond"
+              ],
+              "value": 3
+            }
+          ]
+        },
+        "influence_radius": {
+          "path": [
+            "Profiles",
+            "SurfaceDeformation",
+            0,
+            "Surface",
+            "InfluenceRadiusCm"
+          ],
+          "local": 100,
+          "wide": 260
+        },
+        "requires": {
+          "patterns": [
+            "SurfaceDeformation"
+          ],
+          "objects": [
+            "Deformation_Canvas",
+            "Layer_Far",
+            "Layer_Mid",
+            "Layer_Near"
+          ]
+        },
+        "reaction_values": {
+          "ripple": [
+            {
+              "path": [
+                "Profiles",
+                "SurfaceDeformation",
+                0,
+                "Surface",
+                "Mode"
+              ],
+              "value": "Ripple"
+            }
+          ],
+          "press": [
+            {
+              "path": [
+                "Profiles",
+                "SurfaceDeformation",
+                0,
+                "Surface",
+                "Mode"
+              ],
+              "value": "Elastic",
+              "unverified": "표면 변형 Elastic(누름) 모드 화면(값은 라넬 Test-SurfaceDeformationProof.py ElasticTwo에서 확인, 공용 맵 화면 확인 전)"
+            },
+            {
+              "path": [
+                "Profiles",
+                "SurfaceDeformation",
+                0,
+                "Surface",
+                "WaveSpeedCmPerSecond"
+              ],
+              "value": 180
+            },
+            {
+              "path": [
+                "Profiles",
+                "SurfaceDeformation",
+                0,
+                "Surface",
+                "DampingPerSecond"
+              ],
+              "value": 10
+            },
+            {
+              "path": [
+                "Profiles",
+                "SurfaceDeformation",
+                0,
+                "Surface",
+                "ReturnFrequencyHz"
+              ],
+              "value": 1
+            },
+            {
+              "path": [
+                "Profiles",
+                "SurfaceDeformation",
+                0,
+                "Surface",
+                "PressAccelerationCmPerSecondSquared"
+              ],
+              "value": 2500
+            }
+          ]
+        },
+        "reaction_return_values": {
+          "press": {
+            "fade": [
+              {
+                "path": [
+                  "Profiles",
+                  "SurfaceDeformation",
+                  0,
+                  "Surface",
+                  "DampingPerSecond"
+                ],
+                "value": 10,
+                "unverified": "누름 복귀 방식 값(감쇠 10 · 복귀 0.25Hz, 출렁임 없이 천천히 가라앉음)은 라넬 화면 확인 전"
+              },
+              {
+                "path": [
+                  "Profiles",
+                  "SurfaceDeformation",
+                  0,
+                  "Surface",
+                  "ReturnFrequencyHz"
+                ],
+                "value": 0.25
+              }
+            ],
+            "stay": [
+              {
+                "path": [
+                  "Profiles",
+                  "SurfaceDeformation",
+                  0,
+                  "Surface",
+                  "DampingPerSecond"
+                ],
+                "value": 30,
+                "unverified": "누름 복귀 방식 값(감쇠 30 · 복귀 0.25Hz, 출렁임 없이 천천히 가라앉음)은 라넬 화면 확인 전"
+              },
+              {
+                "path": [
+                  "Profiles",
+                  "SurfaceDeformation",
+                  0,
+                  "Surface",
+                  "ReturnFrequencyHz"
+                ],
+                "value": 0.25
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "source": {
+    "merge_request": 57,
+    "revision": "8d2b03b740172307c4cf556f8e1116b8f08beac2"
+  }
+}

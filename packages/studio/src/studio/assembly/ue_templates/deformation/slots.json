@@ -1,0 +1,168 @@
+{
+  "template_version": 1,
+  "layer_side": "front",
+  "far_hidden": true,
+  "label": "표면 변형",
+  "effect_x": 450,
+  "layers": [
+    "far",
+    "mid",
+    "near"
+  ],
+  "far_target": "LayerFar",
+  "canvas_source": true,
+  "release_binding": "DeformCanvas",
+  "return_values": {
+    "instant": [
+      {
+        "path": [
+          "Profiles",
+          "SurfaceDeformation",
+          0,
+          "Surface",
+          "DampingPerSecond"
+        ],
+        "value": 3
+      }
+    ]
+  },
+  "influence_radius": {
+    "path": [
+      "Profiles",
+      "SurfaceDeformation",
+      0,
+      "Surface",
+      "InfluenceRadiusCm"
+    ],
+    "local": 100,
+    "wide": 260
+  },
+  "requires": {
+    "patterns": [
+      "SurfaceDeformation"
+    ],
+    "objects": [
+      "Deformation_Canvas",
+      "Layer_Far",
+      "Layer_Mid",
+      "Layer_Near"
+    ]
+  },
+  "reaction_values": {
+    "ripple": [
+      {
+        "path": [
+          "Profiles",
+          "SurfaceDeformation",
+          0,
+          "Surface",
+          "Mode"
+        ],
+        "value": "Ripple"
+      }
+    ],
+    "press": [
+      {
+        "path": [
+          "Profiles",
+          "SurfaceDeformation",
+          0,
+          "Surface",
+          "Mode"
+        ],
+        "value": "Elastic",
+        "unverified": "표면 변형 Elastic(누름) 모드 화면(값은 라넬 Test-SurfaceDeformationProof.py ElasticTwo에서 확인, 공용 맵 화면 확인 전)"
+      },
+      {
+        "path": [
+          "Profiles",
+          "SurfaceDeformation",
+          0,
+          "Surface",
+          "WaveSpeedCmPerSecond"
+        ],
+        "value": 180
+      },
+      {
+        "path": [
+          "Profiles",
+          "SurfaceDeformation",
+          0,
+          "Surface",
+          "DampingPerSecond"
+        ],
+        "value": 10
+      },
+      {
+        "path": [
+          "Profiles",
+          "SurfaceDeformation",
+          0,
+          "Surface",
+          "ReturnFrequencyHz"
+        ],
+        "value": 1
+      },
+      {
+        "path": [
+          "Profiles",
+          "SurfaceDeformation",
+          0,
+          "Surface",
+          "PressAccelerationCmPerSecondSquared"
+        ],
+        "value": 2500
+      }
+    ]
+  },
+  "reaction_return_values": {
+    "press": {
+      "fade": [
+        {
+          "path": [
+            "Profiles",
+            "SurfaceDeformation",
+            0,
+            "Surface",
+            "DampingPerSecond"
+          ],
+          "value": 10,
+          "unverified": "누름 복귀 방식 값(감쇠 10 · 복귀 0.25Hz, 출렁임 없이 천천히 가라앉음)은 라넬 화면 확인 전"
+        },
+        {
+          "path": [
+            "Profiles",
+            "SurfaceDeformation",
+            0,
+            "Surface",
+            "ReturnFrequencyHz"
+          ],
+          "value": 0.25
+        }
+      ],
+      "stay": [
+        {
+          "path": [
+            "Profiles",
+            "SurfaceDeformation",
+            0,
+            "Surface",
+            "DampingPerSecond"
+          ],
+          "value": 30,
+          "unverified": "누름 복귀 방식 값(감쇠 30 · 복귀 0.25Hz, 출렁임 없이 천천히 가라앉음)은 라넬 화면 확인 전"
+        },
+        {
+          "path": [
+            "Profiles",
+            "SurfaceDeformation",
+            0,
+            "Surface",
+            "ReturnFrequencyHz"
+          ],
+          "value": 0.25
+        }
+      ]
+    }
+  }
+}

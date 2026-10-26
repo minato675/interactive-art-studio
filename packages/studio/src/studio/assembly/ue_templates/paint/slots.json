@@ -1,0 +1,61 @@
+{
+  "template_version": 1,
+  "layer_side": "front",
+  "far_hidden": true,
+  "label": "그리기",
+  "effect_x": 450,
+  "layers": [
+    "far",
+    "mid",
+    "near"
+  ],
+  "far_target": "LayerFar",
+  "canvas_source": true,
+  "release_binding": "PaintCanvas",
+  "palette_targets": [
+    {
+      "path": [
+        "Profiles",
+        "SurfacePaint",
+        0,
+        "StrokeColors"
+      ],
+      "count": 2
+    }
+  ],
+  "return_values": {
+    "instant": [
+      {
+        "path": [
+          "Profiles",
+          "SurfacePaint",
+          0,
+          "FadeHalfLifeSeconds"
+        ],
+        "value": 2
+      }
+    ],
+    "stay": [
+      {
+        "path": [
+          "Profiles",
+          "SurfacePaint",
+          0,
+          "FadeHalfLifeSeconds"
+        ],
+        "value": 60
+      }
+    ]
+  },
+  "requires": {
+    "patterns": [
+      "SurfacePaint"
+    ],
+    "objects": [
+      "Paint_Canvas",
+      "Layer_Far",
+      "Layer_Mid",
+      "Layer_Near"
+    ]
+  }
+}

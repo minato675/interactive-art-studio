@@ -1,0 +1,12 @@
+{
+  "request_id": "replace-with-unique-assets-id",
+  "kind": "assets_generate",
+  "depends_on": ["replace-with-background-job-id"],
+  "generation": {
+    "artwork_id": "artwork-A",
+    "version": "v1",
+    "catalog_version": "v1",
+    "executor": "manual_codex",
+    "prompt": "선행 배경을 참고하여 필요한 에셋을 생성합니다. 실제 제작 지시로 교체하세요."
+  }
+}

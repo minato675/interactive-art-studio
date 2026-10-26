@@ -1,0 +1,24 @@
+name: ranel-ci
+
+services:
+  runner:
+    image: gitlab/gitlab-runner:alpine-v19.5.0@sha256:b7dead3b57cd9e5e5d6aedc6c0736c43972af9a24aa19875c2802bc8afcd3978
+    container_name: ranel-gitlab-runner
+    restart: unless-stopped
+    cpus: 0.5
+    mem_limit: 512m
+    volumes:
+      - runner-config:/etc/gitlab-runner
+      - ./seccomp-buildkit.json:/etc/gitlab-runner/seccomp-buildkit.json:ro
+      # 관리 프로세스에만 연결하며 CI 작업에는 전달하지 않는다.
+      - /var/run/docker.sock:/var/run/docker.sock
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  runner-config:
+    name: ranel-gitlab-runner-config
+    external: true

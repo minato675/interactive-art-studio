@@ -1,0 +1,20 @@
+{
+  "mode": "show",
+  "auto_launch": true,
+  "delivery": "C:/Ranel/PC2-Auto/delivery",
+  "cache": "C:/Ranel/PC2-Auto/cache",
+  "executable": "D:/RanelRuntime/Windows/Art/Binaries/Win64/Art-Win64-Shipping.exe",
+  "working_directory": "D:/RanelRuntime/Windows",
+  "launch_arguments": [
+    "Art",
+    "-dx12",
+    "-unattended",
+    "-windowed",
+    "-ResX=1920",
+    "-ResY=1080"
+  ],
+  "apply_timeout_seconds": 120,
+  "startup_timeout_seconds": 120,
+  "restart_initial_seconds": 2,
+  "restart_max_seconds": 60
+}

@@ -1,0 +1,56 @@
+중앙 서버 이관 (동일 코드 / PostgreSQL 16 / 새 Linux 서버)
+
+이 백업은 서버 전용 비밀 설정·CA 개인키를 포함합니다. 노드 PC에 전달하지 않습니다.
+EC2의 접근 제한된 디렉터리(예: /opt/ranel-transfer)에 SCP로 전달하고 chmod -R go-rwx로 보호합니다.
+아래 복원은 빈 새 배포 경로·빈 새 볼륨에서만 수행합니다. 기존 데이터를 삭제하는 명령은 포함하지 않습니다.
+최종 백업은 원본에서 --leave-stopped로 다시 만들어야 합니다. 검증용 스냅샷 이후 작업은 포함되지 않습니다.
+
+1) 체크섬 확인:
+   cd /opt/ranel-transfer
+   python3 -c 'import hashlib,json,pathlib; p=pathlib.Path("."); m=json.loads((p/"sha256.json").read_text()); assert all(hashlib.sha256((p/k).read_bytes()).hexdigest()==v for k,v in m.items()); print("checksums OK")'
+
+2) 새 배포 폴더 준비 (빈 폴더를 사용):
+   mkdir -p /opt/ranel
+   tar -xzf /opt/ranel-transfer/source.tar.gz -C /opt/ranel
+   cp /opt/ranel-transfer/.env.infra /opt/ranel/.env.infra
+   cp /opt/ranel-transfer/.env.https /opt/ranel/.env.https
+   chmod 600 /opt/ranel/.env.infra /opt/ranel/.env.https
+   백업에 .env.head가 있으면 /opt/ranel/.env.head로 복사하고 chmod 600으로 보호합니다.
+   Head 설정은 선택 사항이며, 키가 없으면 운영 Head 요청이 503으로 거부됩니다.
+   cd /opt/ranel
+   .env.https에서 CENTRAL_HOST=실제 EC2 IP 또는 도메인, CENTRAL_HTTPS_BIND=0.0.0.0으로 변경합니다.
+   EC2 보안 그룹/호스트 방화벽에서 현장 출구 IP -> TCP 8443을 허용합니다.
+
+3) Compose 배열 (이하 Bash에서 같은 셸을 유지):
+   dc=(docker compose --env-file .env.infra --env-file .env.https -f infra/central/compose.yaml -f infra/central/compose.https.yaml)
+   "${dc[@]}" config --quiet
+   "${dc[@]}" up -d --wait postgres rabbitmq
+   "${dc[@]}" build central
+   "${dc[@]}" create central gateway
+   pg=$("${dc[@]}" ps -q postgres)
+   count=$(docker exec "$pg" psql -U ranel -d ranel -Atc "SELECT count(*) FROM pg_tables WHERE schemaname='public';")
+   test "$count" = 0 || { echo 'ABORT: database is not empty'; exit 1; }
+
+4) DB 복원:
+   docker cp /opt/ranel-transfer/postgres.dump "$pg":/tmp/restore.dump
+   docker exec "$pg" pg_restore --exit-on-error --no-owner --no-acl -U ranel -d ranel /tmp/restore.dump
+
+5) 비어 있는 데이터 볼륨에만 복원:
+   helper=caddy:2.11.7-alpine@sha256:d8542f48d34a9cf4e4c11a478865229840e87e4c96ea3f439101f31a5d35f75f
+   central=$("${dc[@]}" ps -a -q central)
+   gateway=$("${dc[@]}" ps -a -q gateway)
+   data=$(docker inspect "$central" --format '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Name}}{{end}}{{end}}')
+   tls=$(docker inspect "$gateway" --format '{{range .Mounts}}{{if eq .Destination "/data"}}{{.Name}}{{end}}{{end}}')
+   docker run --rm -v "$data":/target -v /opt/ranel-transfer:/backup:ro "$helper" sh -ec 'test -z "$(ls -A /target)"; tar xzf /backup/central-data.tar.gz -C /target; chown -R 10001:10001 /target'
+   docker run --rm -v "$tls":/target -v /opt/ranel-transfer:/backup:ro "$helper" sh -ec 'test -z "$(find /target -mindepth 1 ! -type d -print)"; tar xzf /backup/gateway-data.tar.gz -C /target'
+   Caddy 이미지가 새 볼륨에 만드는 빈 caddy/ 디렉터리는 허용합니다. 기존 파일·링크 등은 있으면 중단합니다.
+
+6) 시작·확인:
+   "${dc[@]}" up -d --no-build --wait
+   python3 infra/central/smoke.py
+   생성 PC의 server.json url을 새 HTTPS 주소로 변경하고 python client.py --check를 실행합니다.
+   같은 CA를 복원했으므로 공개 CA 파일은 유지할 수 있습니다. 인증서 오류를 우회하지 않습니다.
+
+RabbitMQ 볼륨/메시지는 이관하지 않습니다. PostgreSQL의 대기 작업을 Dispatcher가 다시 전달합니다.
+현장 배경·에셋 공유 폴더는 그대로 유지합니다. 이 백업의 central-data는 현장 파일 전체가 아닙니다.
+원본 노트북과 새 EC2의 중앙 처리 프로그램을 동시에 켜지 않습니다.

@@ -1,0 +1,26 @@
+[[runners]]
+  limit = 4
+  request_concurrency = 4
+  output_limit = 8192
+  environment = ["FF_NETWORK_PER_BUILD=1"]
+  [runners.docker]
+    image = "ghcr.io/astral-sh/uv:python3.12-bookworm-slim@sha256:e5b65587bce7de595f299855d7385fe7fca39b8a74baa261ba1b7147afa78e58"
+    privileged = false
+    services_privileged = true
+    allowed_privileged_services = ["docker:29.9.1-dind-rootless@sha256:825e451c9bd898245ca8fb07bd9a48999ccf33c0192fd68594c73aed7b67d11f"]
+    security_opt = ["seccomp=/etc/gitlab-runner/seccomp-buildkit.json"]
+    disable_cache = false
+    volumes = ["/cache", "/certs/client"]
+    cpus = "2"
+    memory = "2g"
+    memory_swap = "2g"
+    service_cpus = "2"
+    service_memory = "2g"
+    service_memory_swap = "2g"
+    services_limit = 2
+    shm_size = 268435456
+    pull_policy = "if-not-present"
+    allowed_pull_policies = ["always", "if-not-present"]
+    wait_for_services_timeout = 90
+    allowed_images = ["ghcr.io/astral-sh/uv:python3.12-bookworm-slim@sha256:e5b65587bce7de595f299855d7385fe7fca39b8a74baa261ba1b7147afa78e58", "docker:29.9.1-cli@sha256:6fae2214c3121a28d5aa639d09032f61310b7c9c75ffbad1025f261a1b621800", "alpine:3.22"]
+    allowed_services = ["postgres:16-bookworm", "rabbitmq:4.2", "docker:29.9.1-dind-rootless@sha256:825e451c9bd898245ca8fb07bd9a48999ccf33c0192fd68594c73aed7b67d11f"]

@@ -1,0 +1,18 @@
+{
+  "runtimeRepository": "https://github.com/lanael-studio/interactive-runtime",
+  "runtimeCommit": "aac9b623d387d48a3748eb33bae7a437aba062b2",
+  "contractFiles": {
+    "Source/Art/ContentRuntime/Data/ArtworkSceneRows.h": "bdddc3c8107828e929da774439bdf6beecc13eb1",
+    "Source/Art/ContentRuntime/Data/ArtworkSceneData.h": "ea74b81eada0663320deeaabb5c3bdb46d8791dd",
+    "Source/Art/ContentRuntime/Data/ArtworkSceneData.cpp": "5404d9386ae5f791c40236b742e8ba8cd458eb6c",
+    "Source/Art/ContentRuntime/Data/ArtworkSceneLookData.cpp": "24ef2d65beeb24a735c009ce8389f928c50a8e15",
+    "Source/Art/ContentRuntime/Look/LookProfile.cpp": "a239870b82eb71619859c29ad313b7dc7df7aa57",
+    "Source/Art/ContentRuntime/Look/LookProfileReader.h": "bf13a4618f9b278419255f340c176fbbb21bf4bb",
+    "Source/Art/ContentRuntime/Look/LookEnvironment.h": "11acd61ebf7bf6feb388327045871691f0910b77",
+    "Source/Art/ContentRuntime/Look/LookEnvironment.cpp": "d92addbb205cf985eb57a1f59edb68c7e2cf9f43",
+    "Source/Art/ContentRuntime/Conditions/ArtworkSignalCondition.cpp": "0b2029a38ac9b2ec7f3655bfd3304b53d4239f9f",
+    "Source/Art/ContentRuntime/Behaviors/ArtworkGpuFlowBehavior.h": "1c0d1e0af267f33fcac909e3ae3f04bd2114611c",
+    "Source/Art/ContentRuntime/Behaviors/ArtworkGpuFlowBehavior.cpp": "39edd44b091845bf61666416f765697213c86792"
+  },
+  "notes": "studio.verify.ue_contract가 따라가는 runtime 계약 파일. 바뀌면 runtime_drift()가 알리고, 검사 규칙과 scene-structs.json을 다시 맞춘다."
+}

@@ -1,0 +1,65 @@
+{
+  "template_version": 1,
+  "layer_side": "behind",
+  "far_hidden": false,
+  "label": "그림 휘젓기",
+  "effect_x": 5,
+  "layers": [
+    "far"
+  ],
+  "far_target": "Canvas",
+  "release_binding": "Stir",
+  "return_values": {
+    "instant": [
+      {
+        "path": [
+          "Profiles",
+          "ImageFlow",
+          0,
+          "RestoreHalfLifeSeconds"
+        ],
+        "value": 1.6
+      },
+      {
+        "path": [
+          "Profiles",
+          "ImageFlow",
+          0,
+          "Field",
+          "ReleaseDampingPerSecond"
+        ],
+        "value": 2.2
+      }
+    ],
+    "stay": [
+      {
+        "path": [
+          "Profiles",
+          "ImageFlow",
+          0,
+          "RestoreHalfLifeSeconds"
+        ],
+        "value": 60
+      }
+    ]
+  },
+  "influence_radius": {
+    "path": [
+      "Profiles",
+      "ImageFlow",
+      0,
+      "Field",
+      "InfluenceRadiusCm"
+    ],
+    "local": 200,
+    "wide": 500
+  },
+  "requires": {
+    "patterns": [
+      "ImageFlow"
+    ],
+    "objects": [
+      "FlowStir_Canvas"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "SchemaVersion": 1,
+  "Scene": [
+    {
+      "Name": "RuntimeFluid",
+      "bMirrorHorizontal": true
+    }
+  ],
+  "Placements": [
+    {
+      "Name": "Background",
+      "ObjectId": "Fluid_Background",
+      "Location": "(X=0,Y=0,Z=100)",
+      "Rotation": "(Pitch=90,Yaw=0,Roll=0)",
+      "Scale": "(X=40,Y=25,Z=1)"
+    },
+    {
+      "Name": "Canvas",
+      "ObjectId": "Fluid_Canvas",
+      "Location": "(X=450,Y=0,Z=100)",
+      "Rotation": "(Pitch=0,Yaw=90,Roll=90)",
+      "Scale": "(X=24,Y=13.5,Z=1)"
+    }
+  ],
+  "Conditions": [
+    {
+      "Name": "Hands",
+      "SourceIds": [
+        "td_main/forest_hand",
+        "td_main/hand_tracking_2"
+      ],
+      "ContactSelection": "All",
+      "MaxContacts": 8,
+      "Region": "InputSurface",
+      "Type": "Presence",
+      "SampleId": "position_uv",
+      "CoordinateSpace": "mediapipe_image_uv"
+    }
+  ],
+  "Bindings": [
+    {
+      "Name": "FlowCanvas",
+      "PlacementId": "Canvas",
+      "PatternId": "FluidField",
+      "ProfileId": "Ink",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0,
+      "ReleaseSeconds": 0.5
+    }
+  ],
+  "Profiles": {
+    "FluidField": [
+      {
+        "Name": "Ink",
+        "Field": {
+          "Columns": 96,
+          "Rows": 54,
+          "InfluenceRadiusCm": 180,
+          "DyeHalfLifeSeconds": 5
+        }
+      }
+    ]
+  }
+}

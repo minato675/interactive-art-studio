@@ -1,0 +1,112 @@
+name: ranel
+
+x-app: &app
+  image: ${APP_IMAGE:-ranel-central:local}
+  build:
+    context: ../..
+    dockerfile: infra/central/Dockerfile
+    target: runtime
+  restart: unless-stopped
+  init: true
+  env_file:
+    - path: ../../.env.head
+      required: false
+  environment: &environment
+    DATABASE_URL: postgresql+pg8000://ranel:${POSTGRES_PASSWORD:?required}@postgres:5432/ranel
+    BROKER_URL: amqp://ranel:${RABBITMQ_PASSWORD:?required}@rabbitmq:5672/ranel
+    OPERATOR_TOKEN: ${OPERATOR_TOKEN:?required}
+    AGENT_KEYS_JSON: ${AGENT_KEYS_JSON:?required}
+    STUDIO_DATA: /data
+    RENDERER: ue
+    LLM_PROVIDER: none
+    LEASE_SECONDS: ${LEASE_SECONDS:-120}
+    JOB_MAX_ATTEMPTS: ${JOB_MAX_ATTEMPTS:-3}
+  volumes:
+    - central-data:/data
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+services:
+  postgres:
+    image: postgres:16-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ranel
+      POSTGRES_USER: ranel
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?required}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres-init.sql:/docker-entrypoint-initdb.d/10-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ranel -d ranel"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  rabbitmq:
+    image: rabbitmq:4.2-management
+    hostname: ranel-rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ranel
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:?required}
+      RABBITMQ_DEFAULT_VHOST: ranel
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+
+  central:
+    <<: *app
+    ports:
+      - "127.0.0.1:${CENTRAL_PORT:-18080}:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  worker:
+    <<: *app
+    hostname: ranel-worker
+    command: ["celery", "-A", "central.worker:celery", "worker", "-Q", "planning", "--concurrency=2", "--loglevel=INFO"]
+    depends_on:
+      central:
+        condition: service_healthy
+
+  dispatcher:
+    <<: *app
+    command: ["python", "-m", "central.worker"]
+    depends_on:
+      central:
+        condition: service_healthy
+
+  test:
+    profiles: ["test"]
+    build:
+      context: ../..
+      dockerfile: infra/central/Dockerfile
+      target: test
+    environment:
+      TEST_POSTGRES_URL: postgresql+pg8000://ranel:${POSTGRES_PASSWORD:?required}@postgres:5432/ranel_infra_test
+      BROKER_URL: amqp://ranel:${RABBITMQ_PASSWORD:?required}@rabbitmq:5672/ranel
+      STUDIO_DATA: /app/runtime/test
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres-data:
+  rabbitmq-data:
+  central-data:

@@ -1,0 +1,25 @@
+{
+  "request_id": "replace-with-unique-assembly-http-id",
+  "kind": "ue_assemble",
+  "file_transport": "http",
+  "depends_on": ["replace-background-job-id", "replace-assets-job-id"],
+  "assembly": {
+    "artwork_id": "artwork-A", "version": "v1", "catalog_version": "v1",
+    "spec": {
+      "template_family": "flow_family", "raw_prompt": "고요한 바다와 떠다니는 객체",
+      "content": {"theme": "바다", "mood": "고요", "medium": "particle"},
+      "idle": {"motion": "ignore"},
+      "interactions": [{"input": "move", "reaction": "push", "reaction_mode": "while", "return": "fade"}]
+    },
+    "assets": {
+      "format": "artwork-assets", "version": 1,
+      "layers": [{"id": "far", "image": "far.png", "depth": "far"}],
+      "objects": [{"id": "sprite", "image": "sprite.png", "position": [0.5, 0.5], "size": 0.15,
+                   "behaviors": ["float"]}]
+    },
+    "files": [
+      {"source_job_id": "replace-background-job-id", "source_name": "background.png", "name": "far.png"},
+      {"source_job_id": "replace-assets-job-id", "source_name": "sprite.png", "name": "sprite.png"}
+    ]
+  }
+}

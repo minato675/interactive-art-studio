@@ -1,0 +1,31 @@
+.git
+**/.git
+**/.venv
+**/venv
+**/__pycache__
+**/*.pyc
+**/*.pyd
+**/*.dll
+**/.pytest_cache
+**/.ruff_cache
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/node_modules
+# Only generated data at the repository root. controller/**/runtime is Python source.
+/runtime
+/controller/runtime-data
+**/dist
+**/build
+**/*.egg-info
+**/*.zip
+**/*.log
+**/.DS_Store
+**/Thumbs.db
+td/project/toxes/*.tox
+**/.uv-cache
+**/*.tar
+# Quarantined source and provenance snapshots are documentation, never runtime code.
+/archive
+/docs/provenance/snapshots

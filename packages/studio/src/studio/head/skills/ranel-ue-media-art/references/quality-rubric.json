@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "profile_id": "earth-review-v1",
+  "recorded_on": "2026-10-22",
+  "status": "proposed_project_profile",
+  "scope": "라넬 킨텍스 EARTH 시안과 인터랙션의 단계별 내부 검수",
+  "source": {
+    "document": "라넬-킨텍스-전시기획초안 (1).pdf",
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "weights_origin": "스킬 개정에서 제안한 고정 배점. PDF의 공식 배점이 아님",
+    "threshold_origin": "기존 프로젝트의 주관적 내부 후보 채택 문턱 90점을 계승. PDF가 요구한 인증 기준이 아님",
+    "user_confirmed_overrides": [
+      "가로 12m·높이 3m, 4:1",
+      "실시간 관객 반응과 비동기 AI 이미지·에셋 갱신을 분리",
+      "뎁스카메라 입력",
+      "실제 시연은 12m 직선 벽, 예시는 라넬의 표현 지향"
+    ]
+  },
+  "evidence_types": [
+    "observed",
+    "measured",
+    "inferred",
+    "proposed"
+  ],
+  "check_statuses": [
+    "pass",
+    "fail",
+    "unknown",
+    "not_applicable"
+  ],
+  "scoring_policy": {
+    "observations_and_deductions_before_total": true,
+    "score_range": "0부터 각 항목 max_points까지의 정수",
+    "unknown_required_category_total": null,
+    "renormalize_partial_scores": false,
+    "change_weights_to_reach_threshold": false,
+    "overwrite_prior_review": false,
+    "refinement_rule": "눈으로 확인하거나 실행·측정한 개선만 반영하고 남은 결함 감점을 유지한다",
+    "revision_rule": "사용자가 기준을 바꾸면 새 profile_id를 사용하고 기존 평가를 보존한다"
+  },
+  "profiles": {
+    "still_visual": {
+      "max_total": 100,
+      "candidate_threshold": 90,
+      "categories": [
+        {
+          "id": "natural_identity",
+          "max_points": 15,
+          "observe": "EARTH의 자연 현상과 물성이 읽히고 주제에 맞는 구조가 유지됨"
+        },
+        {
+          "id": "screen_fill_and_scale",
+          "max_points": 20,
+          "observe": "자연 현상이 화면 전반을 조직함. 단일 거대 형태 또는 작은 단위들의 연결된 흐름 모두 가능. 구석의 작은 장식·빈 여백 중심은 감점"
+        },
+        {
+          "id": "depth_and_volume",
+          "max_points": 25,
+          "observe": "전후 층·가림·크기·곡률·두께로 입체감이 읽힘. 평면 텍스처·블러만으로 대체하지 않음"
+        },
+        {
+          "id": "material_and_light",
+          "max_points": 20,
+          "observe": "물·빛·이끼 등 선명한 질감, 일관된 투과·표면·내부 결. 디테일을 지우는 번짐 없음"
+        },
+        {
+          "id": "framing_and_attention",
+          "max_points": 10,
+          "observe": "명시한 캔버스에서 중·하단의 주요 경험과 긴 화면의 연속성, 의도된 크롭"
+        },
+        {
+          "id": "artifact_integrity",
+          "max_points": 10,
+          "observe": "실제 파일 무결성·치수·알파, 불필요한 문자·인물·로고·전시장 외곽과 합성 결함 없음"
+        }
+      ],
+      "required_checks": [
+        "actual_output_opened",
+        "natural_phenomenon_not_decorative_corner",
+        "readable_depth_and_volume",
+        "no_unapproved_geometry_neon_sign_or_artificial_structure",
+        "output_role_and_requested_spec_verified",
+        "no_material_visual_defect"
+      ],
+      "screen_requirement": "사용자 확정 가로 12m·높이 3m, 4:1. 실제 출력 W×H·매핑은 별도 확정",
+      "cannot_verify": [
+        "motion_speed",
+        "residue_duration",
+        "input_causality",
+        "actual_sensor",
+        "realtime_response",
+        "async_ai_refresh",
+        "onsite_led",
+        "eight_hour_operation"
+      ]
+    },
+    "temporal_interaction": {
+      "max_total": 100,
+      "candidate_threshold": 90,
+      "categories": [
+        {
+          "id": "residue_and_slow_decay",
+          "max_points": 25,
+          "observe": "입력 정지·퇴장 뒤 흔적이 이어지고, 같은 기준으로 관찰한 소멸이 생성보다 느림"
+        },
+        {
+          "id": "local_cause_and_propagation",
+          "max_points": 20,
+          "observe": "입력 위치에서 시작해 주변과 화면 전체로 전파되는 인과관계"
+        },
+        {
+          "id": "shared_flow_and_merge",
+          "max_points": 20,
+          "observe": "여러 입력의 흐름이 하나의 현상으로 합류하고 합류 이후의 관계가 이어짐"
+        },
+        {
+          "id": "slow_trackable_tempo",
+          "max_points": 15,
+          "observe": "눈으로 따라가는 속도와 고요한 긴장. 즉시 터졌다 꺼짐·빠른 광고 컷·전체 섬광 없음"
+        },
+        {
+          "id": "continuity_and_recovery",
+          "max_points": 20,
+          "observe": "형태·재질·궤적·가림의 시간 연속성, 상충 입력·상실·복귀에서도 안정적 자율 상태로 전환"
+        }
+      ],
+      "required_checks": [
+        "actual_temporal_output_observed",
+        "input_mode_and_causal_evidence_recorded",
+        "decay_slower_than_formation_observed",
+        "multi_input_merge_observed",
+        "no_flash_cut_or_instant_pop_off",
+        "input_loss_and_recovery_observed"
+      ],
+      "timing_policy": "PDF의 생성 2초·소멸 5초 이상은 예시다. 선택한 현상에 맞춘 시작·끝과 관찰 기준을 기록하며 보편 고정값으로 쓰지 않는다",
+      "mock_input_scope": "모의 입력 점수는 프로토타입 단계에만 유효하며 실제 센서·현장 검증을 대체하지 않는다",
+      "prerender_scope": "고정 영상만으로 시간 특성은 관찰할 수 있으나 실제 입력 인과관계는 unknown으로 두고 전체 인터랙션 총점은 산출하지 않는다"
+    }
+  },
+  "stage_gates": {
+    "sensor": [
+      "physical_depth_camera_connected",
+      "coordinate_mapping_checked",
+      "coverage_and_occlusion_checked",
+      "multiple_viewers_checked",
+      "confidence_loss_recovery_checked"
+    ],
+    "led": [
+      "actual_pixel_canvas_and_mapping_confirmed",
+      "middle_lower_attention_checked",
+      "bright_corridor_readability_checked",
+      "near_far_and_side_views_checked",
+      "black_highlight_and_fine_texture_checked"
+    ],
+    "runtime": [
+      "target_hardware_and_budget_recorded",
+      "frame_time_and_fps_measured",
+      "input_to_response_latency_measured",
+      "peak_complexity_checked"
+    ],
+    "async_ai_refresh": [
+      "response_and_generation_paths_separated",
+      "generation_request_return_review_apply_evidence_linked",
+      "response_continues_during_generation",
+      "refresh_transition_continuity_checked",
+      "generation_failure_recovery_checked"
+    ],
+    "operation": [
+      "eight_hour_requirement_interpreted_and_confirmed",
+      "applicable_duration_tested",
+      "loop_or_continuous_recovery_checked"
+    ]
+  },
+  "decision_policy": {
+    "candidate_pass": "해당 프로파일의 모든 배점 항목에 증거가 있고 합계 90점 이상이며 해당 단계의 required_checks가 모두 pass",
+    "fail": "점수 미달 또는 적용되는 필수 검사에서 실제 실패가 관찰됨",
+    "needs_evidence": "필수 항목이나 검사 증거 부족. 실패와 구분하며 통과로 표시하지 않음",
+    "stage_gate_scope": "센서·LED·런타임·비동기 AI 갱신·운영 gates는 해당 단계 완료 주장에만 필수. 정지 이미지마다 모든 시험을 요구하지 않음",
+    "final_exhibition_selection": "아트디렉터가 실제 결과와 해당 납품 단계의 검사·제한을 검토한 상태를 별도로 기록",
+    "human_review_pending": "자동 점수로 사람의 최종 선택을 대체하지 않음. 허용된 가역적 제작 작업을 자동 중단시키는 승인 절차는 아님"
+  },
+  "review_record_fields": [
+    "artifact_id",
+    "parent_id",
+    "profile_id",
+    "stage",
+    "actual_files",
+    "evidence",
+    "observations",
+    "scores",
+    "deductions",
+    "total",
+    "checks",
+    "input_mode",
+    "timing_definitions",
+    "measurements",
+    "model_decision",
+    "human_review_status",
+    "changes_from_parent",
+    "next_change",
+    "limitations"
+  ],
+  "limitations": [
+    "점수는 주관적 프로젝트 검수이며 원작과 동등한 품질이나 인터랙션 성능의 인증이 아님",
+    "밝은 복도에서의 현장 가독성은 실제 LED 검증 전 unknown",
+    "8시간 루프 목표의 파일 길이·연속 운영·반복 구성 해석은 확정 전 unknown"
+  ],
+  "reference_scope_policy": "Provided drafts are expressive references, not delivery candidates; do not fail a reference for a non-EARTH motif or aspect ratio. Evaluate new artifacts against current requested role; record explicit user overrides."
+}

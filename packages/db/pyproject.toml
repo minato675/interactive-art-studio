@@ -1,0 +1,16 @@
+[project]
+name = "a504-db"
+version = "0.1.0"
+description = "작품 기록 · 소재 풀 DB 테이블과 연결"
+requires-python = ">=3.12"
+dependencies = [
+    "pg8000>=1.31,<2",
+    "sqlmodel>=0.0.22",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "db"

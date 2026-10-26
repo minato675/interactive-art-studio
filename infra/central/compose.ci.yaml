@@ -1,0 +1,9 @@
+# 작업 전용 Docker 안에서만 사용한다. 포트와 호스트 파일을 연결하지 않는다.
+services:
+  postgres:
+    volumes: !override
+      - postgres-data:/var/lib/postgresql/data
+  central:
+    ports: !reset []
+  worker:
+    command: ["celery", "-A", "central.worker:celery", "worker", "-Q", "planning", "--concurrency=1", "--loglevel=WARNING"]

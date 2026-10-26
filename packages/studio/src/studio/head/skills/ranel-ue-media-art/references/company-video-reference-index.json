@@ -1,0 +1,703 @@
+{
+  "schema_version": 1,
+  "source_type": "user_supplied_ranel_visual_motion_drafts",
+  "received_on": "2026-10-22",
+  "attribution_basis": "user statement; original engine and generation model unknown",
+  "interpretation": "expressive aspirations, not literal installation or final delivery specifications",
+  "binaries_bundled": false,
+  "review_scope": "chronological timestamped sampled frames and selected native details; all files fully decoded; no full continuous normal-speed viewing/audio listening/sensor validation",
+  "records": [
+    {
+      "id": "creation_3755552448",
+      "source_path": "runtime/references/company/videos/creation_3755552448.mp4",
+      "sha256": "18372d641a8f1e91cd389257442f699761141548cac77b7c9a42c6538dc2f2d7",
+      "descriptive_label": "나전 문양을 입은 부유 큐브와 수직 빛줄기",
+      "metadata": {
+        "width_px": 1112,
+        "height_px": 834,
+        "aspect_ratio": "4:3",
+        "video_duration_seconds": 5.041667,
+        "container_duration_seconds": 5.088,
+        "fps": "24/1",
+        "audio_present": true,
+        "size_bytes": 15643371
+      },
+      "reviewed_on": "2026-10-22",
+      "full_decode_passed": true,
+      "sample_times_seconds": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "normal_speed_full_playback_observed": false,
+      "audio_listened": false,
+      "source_engine": null,
+      "source_generation_model": null,
+      "visual_summary": "검은 옻칠 같은 직육면체·큐브 표면에 꽃·학·산수·테두리 무늬와 원형 문자형 문양이 자개처럼 무지갯빛으로 박혀 있다. 모서리와 하부가 따뜻한 백금빛으로 발광하고 가는 수직 빛줄기가 이어진다. 실제 자개 재료·제작 공정은 확인되지 않았다.",
+      "chronological_observations": [
+        {
+          "seconds": [
+            0,
+            1
+          ],
+          "observation": "구조와 배치가 유지되며 모서리의 밝기·빛줄기와 일부 큐브 면의 위치·각도가 조금 달라진다."
+        },
+        {
+          "seconds": [
+            1,
+            3
+          ],
+          "observation": "오른쪽 큰 큐브, 왼쪽 세로 큐브, 중앙 뒤 큐브의 형태를 계속 식별할 수 있다. 새 장면으로 전환되지 않고 미세한 부유·회전처럼 보이는 변화가 이어진다."
+        },
+        {
+          "seconds": [
+            3,
+            5
+          ],
+          "observation": "같은 큐브 구성과 자개 문양이 남고 빛줄기·하이라이트가 변한다. 큰 합류·발생·소멸 사건은 샘플에서 나타나지 않는다."
+        }
+      ],
+      "inference_and_limits": "0.5초 간격 비교에서 전체 변화폭은 작고 구도는 대체로 유지된다. 잔잔한 부유의 인상이다. 일부 위치 변화가 카메라 미세 이동인지 물체 운동인지 이 샘플로 분리할 수 없다. 샘플 간 큰 컷은 보이지 않지만 전 프레임 무컷을 판정한 것은 아니다.",
+      "transferable_principles": [
+        "매끈한 반사에만 의존하지 않는 얇은 자개 결·색광",
+        "큰 전경과 작은 후경을 가진 중첩 밀도",
+        "미세한 부유와 변하는 국소 하이라이트",
+        "검은 틈을 깊이 통로로 쓰되 물체가 화면 전반을 조직함"
+      ],
+      "adaptation_for_straight_4_to_1_wall": [
+        "큐브·장식문자·인공 물체는 PDF의 자연 현상 중심·기하학 금지 문구와 긴장 관계다. 사용자 최신 설명에 따라 잘못된 참고로 폐기하지 않고 표현 지향의 근거로 보존한다. 기본 EARTH 콘텐츠에는 자개 같은 색광·정교한 표면·층별 가림을 자연의 형태로 옮긴다. 큐브 자체의 최종 채택 여부는 별도 아트디렉션 선택이다.",
+        "상단에 큰 면이 집중되고 4:3이므로 실제12m직선벽4:1중·하단 경험에 맞춘 재구성이 필요하다. 이 가상 구조를 실제 천장·다중벽 설치 요구로 해석하지 않는다."
+      ],
+      "detailed_evidence_path": "runtime/references/evidence/ranel-skill-revision-20261022/video-analysis/creation_3755552448/visual-observations.json",
+      "real_interaction_verified": false
+    },
+    {
+      "id": "creation_3754594254",
+      "source_path": "runtime/references/company/videos/creation_3754594254.mp4",
+      "sha256": "b90030fadd1c2262d28000165de65492fa3485cfd57706f14e1128fc353e7388",
+      "descriptive_label": "색이 겹친 반투명 막의 국소 함몰과 복원",
+      "metadata": {
+        "width_px": 960,
+        "height_px": 960,
+        "aspect_ratio": "1:1",
+        "video_duration_seconds": 5.0,
+        "container_duration_seconds": 5.038005,
+        "fps": "30/1",
+        "audio_present": true,
+        "size_bytes": 6866684
+      },
+      "reviewed_on": "2026-10-22",
+      "full_decode_passed": true,
+      "sample_times_seconds": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        4.966667
+      ],
+      "normal_speed_full_playback_observed": false,
+      "audio_listened": false,
+      "source_engine": null,
+      "source_generation_model": null,
+      "visual_summary": "청록·분홍·황색·녹색·붉은색의 부푼 풍선 또는 얇은 비닐막 같은 덩어리가 화면을 빈틈없이 채운다. 반투명 색의 중첩, 주름, 가는 물방울 같은 표면 점, 강한 곡면 반사가 읽힌다. 소재의 실제 정체나 물리 시뮬레이션 여부는 미확인이다.",
+      "chronological_observations": [
+        {
+          "seconds": [
+            0,
+            0.5
+          ],
+          "observation": "부풀어 오른 중앙 분홍과 좌측 청색 형태가 큰 함몰 없이 유지된다."
+        },
+        {
+          "seconds": [
+            1,
+            1.5
+          ],
+          "observation": "좌측 청색 막에 별 모양 주름을 동반한 국소 함몰이 생기고 다시 부풀어 보이는 쪽으로 변한다."
+        },
+        {
+          "seconds": [
+            2,
+            3
+          ],
+          "observation": "중앙 분홍 막이 중심으로 모여드는 주름과 함께 눌렸다가 형태를 회복한다. 변형 중심 주변의 반사도 함께 바뀐다."
+        },
+        {
+          "seconds": [
+            3.5,
+            4
+          ],
+          "observation": "아래쪽 황색·주황색 막에서 함몰과 방사형 주름이 나타난다."
+        },
+        {
+          "seconds": [
+            4.5,
+            4.966667
+          ],
+          "observation": "하단 막이 다시 부풀고 초기와 가까운 전면 구성으로 돌아온다. 첫·끝이 정확히 일치하는 루프는 검사하지 않았다."
+        }
+      ],
+      "inference_and_limits": "한 위치의 변형이 샘플상 약1초 안팎의 구간에 나타나고 다른 위치로 옮겨간다. 카메라 이동은 두드러지지 않고 재질 자체의 국소 변형이 주다. 정상속도 재생을 보지 않아 감각적 느림·손 추적 지연을 평가할 수 없다. 샘플에서 큰 컷은 발견되지 않았다.",
+      "transferable_principles": [
+        "접촉 위치 주변의 부피 손실·주름·반사가 함께 변함",
+        "전체 화면을 흔들지 않는 국소 변형",
+        "소재의 색·두께·하이라이트를 유지한 연속 복원",
+        "많은 작은 입자 없이도 변형의 방향과 압력이 읽힘"
+      ],
+      "adaptation_for_straight_4_to_1_wall": [
+        "인공적 풍선·비닐과 강한 다색은 자연 현상 중심 문구와 긴장 관계가 있지만, 사용자가 제공한 라넬 표현 지향으로 보존한다. 탄성·압력·회복 원리를 수면·꽃잎·자연막 등의 선택된 소재에 옮길 수 있다.",
+        "근경의 촉각적 부피는 강하나 깊은 원경 구조와 입력 간 합류·장시간 잔류는 이 샘플의 근거가 아니다.",
+        "정사각형 장면을4:1로 단순 늘리거나 무작정 가로 반복하면 재질과 스케일을 훼손할 수 있다. 중·하단의 국소 반응과 수평 전파를 별도로 구성해야 한다."
+      ],
+      "detailed_evidence_path": "runtime/references/evidence/ranel-skill-revision-20261022/video-analysis/creation_3754594254/visual-observations.json",
+      "real_interaction_verified": false
+    },
+    {
+      "id": "creation_3754078138",
+      "source_path": "runtime/references/company/videos/creation_3754078138.mp4",
+      "sha256": "9c456364608105dedb73269edbee402685d9b69f65d0ad91e6337ca1a3d5cf77",
+      "descriptive_label": "붉은 꽃의 개화와 겹친 꽃군락",
+      "metadata": {
+        "width_px": 1280,
+        "height_px": 720,
+        "aspect_ratio": "16:9",
+        "video_duration_seconds": 5.0,
+        "container_duration_seconds": 5.038005,
+        "fps": "30/1",
+        "audio_present": true,
+        "size_bytes": 8500864
+      },
+      "reviewed_on": "2026-10-22",
+      "full_decode_passed": true,
+      "sample_times_seconds": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        4.966667
+      ],
+      "normal_speed_full_playback_observed": false,
+      "audio_listened": false,
+      "source_engine": null,
+      "source_generation_model": null,
+      "visual_summary": "큰 붉은 꽃봉오리와 여러 꽃이 화면을 가득 채운다. 꽃잎의 세로 섬유 결·주름·얇은 광택, 겹친 가장자리의 두께, 내부의 붉은 투과광과 금빛 수술이 선명하다. 특정 식물 종이나 실제 생물 개화 속도를 확인한 것은 아니다.",
+      "chronological_observations": [
+        {
+          "seconds": [
+            0,
+            0.5
+          ],
+          "observation": "중앙의 닫힌 큰 봉오리와 표면의 섬유 결이 보인다. 상단 꽃잎이 차츰 벌어지기 시작한다."
+        },
+        {
+          "seconds": [
+            1,
+            1.5
+          ],
+          "observation": "꽃잎들이 바깥으로 펼쳐지고 안쪽 수술이 나타난다. 중앙 내부 공간이 열리면서 실제 가림 관계가 달라진다."
+        },
+        {
+          "seconds": [
+            2,
+            2.5
+          ],
+          "observation": "중앙 꽃이 넓게 열리고 왼쪽·오른쪽 뒤의 꽃도 드러나 여러 겹의 꽃군락이 된다."
+        },
+        {
+          "seconds": [
+            3,
+            4.966667
+          ],
+          "observation": "열린 꽃들의 잔주름·가장자리·하이라이트가 변하며 여러 꽃이 화면을 차지한다. 닫힘·낙화·소멸 단계는 나타나지 않는다."
+        }
+      ],
+      "inference_and_limits": "큰 개화 변화가0~2.5초 사이에 집중되고 후반은 열린 상태가 이어진다. 시간이 갈수록 중앙 꽃의 화면 점유가 줄고 주변 꽃이 더 보여 시야가 물러나는 인상이 있지만, 실제 카메라 이동과 개체·장면 변형을 분리 확인하지 않았다. 샘플상 큰 컷은 보이지 않는다.5초 안에 개화가 진행하므로 전시의 매우 느린 템포는 별도 검증·조정 대상이다.",
+      "transferable_principles": [
+        "형태가 움직일 때 꽃잎 표면 결·빛·가림이 함께 유지됨",
+        "외곽의 흔들림 대신 내부가 실제로 열리는 본체 변형",
+        "단일 큰 꽃에서 주변 군락으로 이어지는 깊이",
+        "검은 틈은 구조를 읽히는 보조이고 자연물이 화면을 점유함"
+      ],
+      "adaptation_for_straight_4_to_1_wall": [
+        "16:9시안이므로4:1의12m직선벽에서는 단순크롭보다 수평 군락·층·반응 유입 위치를 재설계한다. 실제 전시 공간의 벽수·곡면·관객 배치를 이 콘텐츠에서 추론하지 않는다.",
+        "빠른 컷은 샘플에서 보이지 않지만 큰 개화가 몇 초 안에 진행된다. 거대한 전시 스케일의 고요한 템포인지 정상속도와 현장 가독성으로 검토해야 한다.",
+        "개화만 있고 관객 유래 확산·여러 흐름의 합류·퇴장 뒤 잔류가 없으므로 인터랙션 시퀀스로 완성됐다고 보지 않는다."
+      ],
+      "detailed_evidence_path": "runtime/references/evidence/ranel-skill-revision-20261022/video-analysis/creation_3754078138/visual-observations.json",
+      "real_interaction_verified": false
+    },
+    {
+      "id": "creation_3754327990",
+      "source_path": "runtime/references/company/videos/creation_3754327990.mp4",
+      "sha256": "736d13ee9a32236d55d2c08734aebf27a31742cc6705abdaaa1b64ab97e7da41",
+      "descriptive_label": "세로 성운과 흰 기류의 열림",
+      "metadata": {
+        "width_px": 496,
+        "height_px": 864,
+        "aspect_ratio": "31:54",
+        "video_duration_seconds": 5.041667,
+        "container_duration_seconds": 5.056,
+        "fps": "24/1",
+        "audio_present": true,
+        "size_bytes": 3774187
+      },
+      "reviewed_on": "2026-10-22",
+      "full_decode_passed": true,
+      "sample_times_seconds": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "normal_speed_full_playback_observed": false,
+      "audio_listened": false,
+      "source_engine": null,
+      "source_generation_model": null,
+      "visual_summary": "청색·적갈색 성운 같은 부피와 흰 연기/기류. 별점이 있는 세로 구도",
+      "chronological_observations": [
+        {
+          "times_seconds": [
+            0,
+            0.041667,
+            0.083333
+          ],
+          "type": "observed",
+          "description": "밝은 흰 성운·적갈색 가닥·검은 중앙 공간·별점이 세로 화면을 채운 첫 이미지."
+        },
+        {
+          "times_seconds": [
+            0.125,
+            0.25,
+            0.5
+          ],
+          "type": "observed",
+          "description": "다른 청색 중심 성운과 흰 기류 장면으로 바뀌고 상하 검정 레터박스가 등장. 0.083333초와0.125초 사이에 구성/프레임 점유가 급변한다."
+        },
+        {
+          "times_seconds": [
+            0.5,
+            1,
+            1.5,
+            2,
+            2.5,
+            3,
+            3.5,
+            4,
+            4.5,
+            5
+          ],
+          "type": "observed",
+          "description": "흰 기류가 주변을 휘감다가 좌상단·하단 가장자리 밖으로 물러나며 청색/적갈색 내부 부피가 더 드러남. 중앙 부피의 상대적 프레이밍은 크게 유지된다."
+        },
+        {
+          "times_seconds": [
+            0.5,
+            2.5,
+            5
+          ],
+          "type": "inferred",
+          "description": "흰 외피의 이동으로 내부 부피를 드러내는 연출로 읽힌다. 실제3D유체나 물리 연산의 증거는 아니다."
+        }
+      ],
+      "inference_and_limits": "0.5초 간격 샘플에서 흰 기류가 단계적으로 이동·이탈하는 변화가 보임. 초반0.083333→0.125초의 급전환은 원시영상의 구체적 연속성 문제. 정상속도 연속재생으로 전체템포를 확정한 것은 아님.",
+      "transferable_principles": [
+        "안개/물질의 얇고 두꺼운 층과 서로 다른 밀도로 부피를 만드는 방식",
+        "밝은 외피가 지나가며 뒤쪽 색과 구조를 드러내는 가림 변화",
+        "현상이 화면을 채우는 규모와 재질 대비"
+      ],
+      "adaptation_for_straight_4_to_1_wall": [
+        "천체·별점을 EARTH 기본모티프로 고정하지 않고 안개·구름·물의 현상으로 조형원리를 번역",
+        "세로이미지 확대나크롭으로4:1납품을 대신하지 않고12m직선벽용 가로연속 구조 재설계",
+        "초기 급전환·레터박스 변화를 새콘텐츠에서 재현하지 않고 시작부터 연속된 캔버스 사용",
+        "입력 발생·다중합류·이탈후잔류가 따로 필요하며 이영상이 구현한 것으로 평가하지 않음"
+      ],
+      "detailed_evidence_path": "runtime/references/evidence/ranel-skill-revision-20261022/video-analysis/creation_3754327990/observations.json",
+      "real_interaction_verified": false
+    },
+    {
+      "id": "creation_3754158032",
+      "source_path": "runtime/references/company/videos/creation_3754158032.mp4",
+      "sha256": "eb2257fa0fa4be3f7ff6aafdfec58b7911f3b01631c86f71500adc7bf8415949",
+      "descriptive_label": "민들레의 촘촘한 씨앗과 분리되는 솜털",
+      "metadata": {
+        "width_px": 1280,
+        "height_px": 718,
+        "aspect_ratio": "640:359",
+        "video_duration_seconds": 5.0,
+        "container_duration_seconds": 5.038005,
+        "fps": "30/1",
+        "audio_present": true,
+        "size_bytes": 24476934
+      },
+      "reviewed_on": "2026-10-22",
+      "full_decode_passed": true,
+      "sample_times_seconds": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        4.966667
+      ],
+      "normal_speed_full_playback_observed": false,
+      "audio_listened": false,
+      "source_engine": null,
+      "source_generation_model": null,
+      "visual_summary": "검은 바탕 위 화면을 크게 채우는 여러 민들레 씨앗머리와 낱씨앗. 흰/은빛 솜털·따뜻한 갈색 중심",
+      "chronological_observations": [
+        {
+          "times_seconds": [
+            0,
+            0.5,
+            1,
+            1.5
+          ],
+          "type": "observed",
+          "description": "큰 씨앗머리들이 겹치고 화면가장자리에서 잘리며 전반을 채운다. 개별 방사형 줄기와 촘촘한 솜털이 보임."
+        },
+        {
+          "times_seconds": [
+            2,
+            2.5,
+            3,
+            3.5
+          ],
+          "type": "observed",
+          "description": "낱씨앗이 중심에서 떨어져 앞뒤로 부유하는 모습이 늘고, 큰씨앗머리의 털밀도가 감소해 방사형 줄기가 더 드러남."
+        },
+        {
+          "times_seconds": [
+            4,
+            4.5,
+            4.966667
+          ],
+          "type": "observed",
+          "description": "큰 씨앗머리 주변에 독립된 솜털/씨앗이 더 넓게 흩어져 있으며 가까운 큰 솜털과 뒤쪽의 작은 개체가 겹친다."
+        },
+        {
+          "times_seconds": [
+            0,
+            2.5,
+            4.966667
+          ],
+          "type": "inferred",
+          "description": "분산으로 고밀도 부피가 작은 유기단위의 넓은 부유공간으로 변하는 연출로 읽힘. 방향과 실제 힘의 원인은 영상만으로 확인되지 않음."
+        }
+      ],
+      "inference_and_limits": "0.5초간격샘플에서2초전후부터분리·분산이증가하고5초끝까지남아있음. 샘플상일관된모티프/프레이밍이며확인한샘플간빠른광고컷은없음. 빠른움직임/떨림전체부재나정확한부유속도는정상속도재생미검증.",
+      "transferable_principles": [
+        "작은유기단위의밀도가큰부피와스케일을만드는방식",
+        "가까운개체와먼개체의크기·가림·초점차이",
+        "흰빛과갈색핵의제한된색으로선명한자연질감을드러내는방식",
+        "자연물의해체/분산을통해시각적잔류재료를남기는연출"
+      ],
+      "adaptation_for_straight_4_to_1_wall": [
+        "1280×718원본은4:1아님.12m직선벽에맞게씨앗군집과부유통로를가로로조직",
+        "기존구형머리들을그대로반복배치하지않고관객자극에서발생한낱씨앗이합류하는공동기류추가",
+        "검정은개체분리용국소간격으로쓰되밝은복도에서가는솜털이보이는지실제LED검수",
+        "정지/퇴장이후수명과완만한소멸을별도설계.5초클립의끝이입력종료나소멸완료증거는아님"
+      ],
+      "detailed_evidence_path": "runtime/references/evidence/ranel-skill-revision-20261022/video-analysis/creation_3754158032/observations.json",
+      "real_interaction_verified": false
+    },
+    {
+      "id": "creation_3755596349",
+      "source_path": "runtime/references/company/videos/creation_3755596349.mp4",
+      "sha256": "b4bf830f7a254b4f30c6ed5c0e0dc91a39207e82b376d802f875ab432116bb81",
+      "descriptive_label": "이끼 회랑의 깊이와 빛 속 낙엽",
+      "metadata": {
+        "width_px": 1278,
+        "height_px": 720,
+        "aspect_ratio": "71:40",
+        "video_duration_seconds": 5.0,
+        "container_duration_seconds": 5.038005,
+        "fps": "30/1",
+        "audio_present": true,
+        "size_bytes": 20190199
+      },
+      "reviewed_on": "2026-10-22",
+      "full_decode_passed": true,
+      "sample_times_seconds": [
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        4.966667
+      ],
+      "normal_speed_full_playback_observed": false,
+      "audio_listened": false,
+      "source_engine": null,
+      "source_generation_model": null,
+      "visual_summary": "이끼와나무·흰꽃이깊게덮인돌회랑/통로,중앙원경의밝은출구와후반부잎낙하",
+      "chronological_observations": [
+        {
+          "times_seconds": [
+            0,
+            0.5,
+            1
+          ],
+          "type": "observed",
+          "description": "좌하단의두꺼운이끼·큰나무와중앙바닥길,반복되는수직기둥/수평보같은구조가밝은원경으로후퇴.작은흰꽃과덩굴이촘촘함."
+        },
+        {
+          "times_seconds": [
+            1.5,
+            2,
+            2.5,
+            3
+          ],
+          "type": "observed",
+          "description": "노랑·녹색잎이전경을가로질러나타나며나무/회랑의겹침과프레임가장자리의포함영역이변함."
+        },
+        {
+          "times_seconds": [
+            3.5,
+            4,
+            4.5,
+            4.966667
+          ],
+          "type": "observed",
+          "description": "중앙길과밝은원경은남고가까운왼쪽나무/이끼가프레임에서더밀려나간다.낱잎은큰것과작은것이겹쳐보이며끝부분에수량이줄어듦."
+        },
+        {
+          "times_seconds": [
+            0,
+            2.5,
+            4.966667
+          ],
+          "type": "inferred",
+          "description": "시점이회랑안으로천천히전진하는듯한프레이밍변화.실제카메라경로·이동거리·엔진은미확인."
+        }
+      ],
+      "inference_and_limits": "0.5초샘플에서연속적인시점변화와잎낙하가보임.본체식생의독립변형보다시점이동과잎이주변운동의큰부분.정상속도전체재생미검증이므로정확한느림·속도·떨림부재를단정하지않음.",
+      "transferable_principles": [
+        "전경의손에잡힐듯한이끼·나무·흰꽃질감",
+        "중앙원경까지후퇴하는연속적인깊이",
+        "따뜻한산란광과그늘의대비",
+        "밝고울창한자연환경안에겹치는낱잎으로공간층을설명하는방식"
+      ],
+      "adaptation_for_straight_4_to_1_wall": [
+        "이끼덮인돌회랑은라넬의희망하는깊이·질감참고로보존.실제전시장이회랑/천장LED라는뜻으로해석하지않음",
+        "12m직선벽용4:1자연콘텐츠에서인공기둥·보·돌길복제를필수로하지않고자연식생층으로같은후퇴감설계가능",
+        "한관객움직임으로전체카메라를움직이지않도록기본공유시점과개별잎/빛의반응을분리",
+        "낙엽이생기고줄어드는영상순서만으로관객입력·합류·소멸시간검증을대신하지않음"
+      ],
+      "detailed_evidence_path": "runtime/references/evidence/ranel-skill-revision-20261022/video-analysis/creation_3755596349/observations.json",
+      "real_interaction_verified": false
+    },
+    {
+      "id": "creation_3763037965",
+      "source_path": "runtime/references/company/videos/creation_3763037965.mp4",
+      "sha256": "e3719718771f51c374948dda5ea48723c6eedded4da4fdb5c74c6bc31ecc2a7a",
+      "descriptive_label": "큰 파도와 포말의 부피",
+      "metadata": {
+        "width_px": 1440,
+        "height_px": 1440,
+        "aspect_ratio": "1:1",
+        "video_duration_seconds": 3.458333,
+        "container_duration_seconds": 3.504349,
+        "fps": "24/1",
+        "audio_present": true,
+        "size_bytes": 19571805
+      },
+      "reviewed_on": "2026-10-22",
+      "full_decode_passed": true,
+      "sample_times_seconds": [
+        0.0,
+        0.4166666666666667,
+        0.8333333333333334,
+        1.2916666666666667,
+        1.7083333333333333,
+        2.125,
+        2.5833333333333335,
+        3.0,
+        3.4166666666666665
+      ],
+      "normal_speed_full_playback_observed": false,
+      "audio_listened": false,
+      "source_engine": null,
+      "source_generation_model": null,
+      "visual_summary": "큰 파도와 포말의 부피",
+      "chronological_observations": [
+        "0~3.000초 표본에서 말린 파도면·주변 포말·물보라의 실루엣과 상대 위치가 달라짐. 큰 파도와 전경 물결이 화면 전반을 채움.",
+        "0초 native 프레임에서 곡면의 두께·굴절·포말 분해·근경과 원경의 층이 선명함.",
+        "3.417초 마지막 표본은 파도 실루엣을 읽기 어려운 흐릿한 청색 근접 장면으로 크게 달라짐."
+      ],
+      "inference_and_limits": [
+        "연속 표본은 말리는 파도와 전경 물의 이동으로 읽힘. 마지막 변화가 카메라 접근인지 생성 전환인지 원인 미확인. 정상속도 전체 재생 없이 정확한 체감 속도·컷 위치는 확정하지 않음."
+      ],
+      "transferable_principles": [
+        "화면을 지배하는 물의 부피",
+        "큰 파도면과 작은 물결·포말의 여러 크기",
+        "굴절·깊이·밝고 어두운 수막"
+      ],
+      "adaptation_for_straight_4_to_1_wall": [
+        "정사각 원본을 늘리지 않고 4:1 수평 파동장으로 재설계",
+        "마지막 흐린 급변을 채택하지 않고 형태 연속성·느린 잔류를 설계",
+        "관객별 국소 입력과 합류는 별도 구현"
+      ],
+      "detailed_evidence_path": "runtime/references/evidence/ranel-skill-revision-20261022/video-analysis/creation_3763037965/observations.json",
+      "real_interaction_verified": false
+    },
+    {
+      "id": "creation_3762974028",
+      "source_path": "runtime/references/company/videos/creation_3762974028.mp4",
+      "sha256": "6188f587d8fb5ad232b0a7bdeedddad3bd3267f84bf825ef747594566c5a969b",
+      "descriptive_label": "이끼 원시림의 촘촘한 층",
+      "metadata": {
+        "width_px": 1916,
+        "height_px": 1080,
+        "aspect_ratio": "479:270",
+        "video_duration_seconds": 15.041667,
+        "container_duration_seconds": 15.041995,
+        "fps": "24/1",
+        "audio_present": true,
+        "size_bytes": 73378709
+      },
+      "reviewed_on": "2026-10-22",
+      "full_decode_passed": true,
+      "sample_times_seconds": [
+        0.0,
+        0.875,
+        1.75,
+        2.6666666666666665,
+        3.5416666666666665,
+        4.416666666666667,
+        5.291666666666667,
+        6.166666666666667,
+        7.041666666666667,
+        7.958333333333333,
+        8.833333333333334,
+        9.708333333333334,
+        10.583333333333334,
+        11.458333333333334,
+        12.333333333333334,
+        13.25,
+        14.125,
+        15.0
+      ],
+      "normal_speed_full_playback_observed": false,
+      "audio_listened": false,
+      "source_engine": null,
+      "source_generation_model": null,
+      "visual_summary": "이끼 원시림의 촘촘한 층",
+      "chronological_observations": [
+        "0~15.000초18표본에서 큰 이끼 가지·뿌리·풀과 뒤쪽 숲의 전체 구조가 유지됨. 가까운 나뭇가지의 포함 영역과 상대 프레이밍이 점차 달라짐.",
+        "초기 native 프레임에서 이끼 섬유·늘어진 풀·거친 수피·여러 겹의 가지·밝은 후경이 보이며 자연물이 화면을 채움.",
+        "표본상 풀·잎의 위치가 조금 달라지고 중간에 낱잎이 나타남. 국소 반응 발생/이탈/소멸 장면은 확인되지 않음."
+      ],
+      "inference_and_limits": [
+        "15초에 걸친 프레이밍 이동과 작은 식생 변화가 느린 탐색의 인상을 줌. 실제 카메라 경로·속도와 개별 식물의 변형을 분리 측정하지 않음."
+      ],
+      "transferable_principles": [
+        "근경의 손에 잡힐 듯한 이끼와 원경의 깊은 식생",
+        "검정 배경 없이도 가림·그늘·산란광으로 부피",
+        "작은 잎·풀과 큰 지형/가지의 위계"
+      ],
+      "adaptation_for_straight_4_to_1_wall": [
+        "1916×1080 원본과 4:1 최종 구도 구분",
+        "12m 직선 벽에 숲의 수평 연속성과 중하단 입력 통로 설계",
+        "카메라 전진만으로 인터랙션을 대신하지 않고 잎·기류·빛의 공유 반응 구현"
+      ],
+      "detailed_evidence_path": "runtime/references/evidence/ranel-skill-revision-20261022/video-analysis/creation_3762974028/observations.json",
+      "real_interaction_verified": false
+    },
+    {
+      "id": "creation_3762252602",
+      "source_path": "runtime/references/company/videos/creation_3762252602.mp4",
+      "sha256": "5e1f7043a15bcbe382cd5d8d4493686736cfde3540f52a14037792939bb3939c",
+      "descriptive_label": "금빛 낙하 입자와 촘촘한 빛의 궤적",
+      "metadata": {
+        "width_px": 960,
+        "height_px": 960,
+        "aspect_ratio": "1:1",
+        "video_duration_seconds": 5.041667,
+        "container_duration_seconds": 5.041667,
+        "fps": "24/1",
+        "audio_present": false,
+        "size_bytes": 16821823
+      },
+      "reviewed_on": "2026-10-22",
+      "full_decode_passed": true,
+      "sample_times_seconds": [
+        0.0,
+        0.625,
+        1.25,
+        1.875,
+        2.5,
+        3.125,
+        3.75,
+        4.375,
+        5.0
+      ],
+      "normal_speed_full_playback_observed": false,
+      "audio_listened": false,
+      "source_engine": null,
+      "source_generation_model": null,
+      "visual_summary": "금빛 낙하 입자와 촘촘한 빛의 궤적",
+      "chronological_observations": [
+        "0~5.000초9표본에서 검은 배경 위 금빛 긴 낙하 흔적과 작은 빛점의 분포·길이가 계속 달라짐.",
+        "가까운 듯한 큰 밝은 요소와 원경의 작은 점이 함께 화면 전반을 조직. 소수의 장식만 구석에 놓인 구도는 아님.",
+        "2.500초 native 프레임은 촘촘한 점·길어진 꼬리·밝은 불씨 같은 형태. 꽃잎의 명확한 실루엣으로는 확인되지 않음."
+      ],
+      "inference_and_limits": [
+        "아래로 흐르는 불씨/빛 입자 같은 현상으로 읽힘. 개별 요소를 시간 내내 추적하지 않았으므로 낙하속도·수명·물리 운동을 측정한 것은 아님."
+      ],
+      "transferable_principles": [
+        "작은 빛 단위가 화면 전체의 현상을 만드는 밀도",
+        "크기·밝기·초점 차이로 읽히는 앞뒤 층",
+        "국소 검은 틈과 빛의 대비"
+      ],
+      "adaptation_for_straight_4_to_1_wall": [
+        "정사각 프레임을 4:1로 다시 조직",
+        "밝은 복도에서 가는 빛점의 가독성 현장 확인",
+        "낙화라는 내부 기준작과 동일 파일이라고 단정하지 않음",
+        "단순 수직 낙하에 국소 발생·합류·잔류를 새로 설계"
+      ],
+      "detailed_evidence_path": "runtime/references/evidence/ranel-skill-revision-20261022/video-analysis/creation_3762252602/observations.json",
+      "real_interaction_verified": false
+    }
+  ],
+  "path_base": "repository_root",
+  "path_role": "relocation_targets_not_bundled",
+  "detailed_evidence_bundled": false,
+  "historical_evidence_note": "메타데이터·해시·관찰·디코드 결과는 reviewed_on의 과거 기록이다. 원본 영상과 상세 증거 파일은 배포하지 않는다. 아래 경로는 자료를 별도 전달받을 때의 저장소 기준 재배치 위치이며 현재 파일 존재나 재검증을 뜻하지 않는다."
+}

@@ -1,0 +1,63 @@
+{
+  "SchemaVersion": 1,
+  "Scene": [
+    {
+      "Name": "RuntimeImageFlow",
+      "bMirrorHorizontal": true
+    }
+  ],
+  "Placements": [
+    {
+      "Name": "Background",
+      "ObjectId": "Paint_Background",
+      "Location": "(X=0,Y=0,Z=100)",
+      "Rotation": "(Pitch=90,Yaw=0,Roll=0)",
+      "Scale": "(X=40,Y=25,Z=1)"
+    },
+    {
+      "Name": "Canvas",
+      "ObjectId": "ImageFlow_Canvas",
+      "Location": "(X=450,Y=0,Z=100)",
+      "Rotation": "(Pitch=0,Yaw=90,Roll=90)",
+      "Scale": "(X=24,Y=13.5,Z=1)"
+    }
+  ],
+  "Conditions": [
+    {
+      "Name": "Hands",
+      "SourceIds": [
+        "td_main/runtime_probe_1",
+        "td_main/runtime_probe_2"
+      ],
+      "ContactSelection": "All",
+      "MaxContacts": 8,
+      "Region": "InputSurface",
+      "Type": "Presence",
+      "SampleId": "position_uv",
+      "CoordinateSpace": "mediapipe_image_uv"
+    }
+  ],
+  "Bindings": [
+    {
+      "Name": "ImageCanvas",
+      "PlacementId": "Canvas",
+      "PatternId": "ImageFlow",
+      "ProfileId": "Paint",
+      "ConditionId": "Hands",
+      "AttackSeconds": 0,
+      "ReleaseSeconds": 0.5
+    }
+  ],
+  "Profiles": {
+    "ImageFlow": [
+      {
+        "Name": "Paint",
+        "ImageWidth": 1024,
+        "ImageHeight": 576,
+        "MixingPerSecond": 4,
+        "MixingRadiusPixels": 2,
+        "RestoreHalfLifeSeconds": 20
+      }
+    ]
+  }
+}
